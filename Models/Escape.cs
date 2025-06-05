@@ -8,7 +8,6 @@ namespace TP05.Models
     {
         public Dictionary<int, string> respuestas { get; private set; }
         public Dictionary<int, string> pistas { get; private set; }
-
         public int[] secuencias { get; private set; }
         public int salaActual { get; private set; }
         public string nombreJugador { get; private set; }
