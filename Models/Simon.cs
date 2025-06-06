@@ -16,16 +16,13 @@ namespace TP05.Models
         }
         public List<char> generarSecuencia()
         {
-
+            List<char> secuencia = new List<char>();
+            Random r = new Random();
             for (int i = 0; i < meta; i++)
             {
-
-                Random r = new Random();
-
-                respuestas.Add(colores[r.Next(1, colores.Length)]);
-
+                secuencia.Add(colores[r.Next(colores.Length)]);
             }
-            return respuestas;
+            return secuencia;
         }
         public bool ValidarContraseña(char intento)
         {
