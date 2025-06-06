@@ -15,25 +15,29 @@ namespace TP05.Models
         }
         public Dictionary<string, int> DevolverResultado(string intento)
         {
-        Dictionary<string, int> resultado = new Dictionary<string, int>()
-        {
-            {"correctas", 0},
-            {"incorrectas", 0},
-            {"estan", 0}
-        };
-            foreach (char c in intento)
+            Dictionary<string, int> resultado = new Dictionary<string, int>()
             {
-                if (intento.Contains(c))
+                {"correctas", 0},
+                {"incorrectas", 0},
+                {"estan", 0}
+            };
+            for (int i = 0; i < intento.Count(); i++)
+            {
+                if (numeroElegido[i] == intento[i])
                 {
-                    if(intento.IndexOf(c) ==)
-                    {
-
-                    }
+                    resultado["correctas"]++;
                 }else
                 {
-                    resultado["incorrectas"]++;
+                    if(numeroElegido.Contains(intento[i]))
+                    {
+                        resultado["estan"]++;
+                    }else
+                    {
+                        resultado["incorrectas"]++;
+                    }
                 }
             }
+            return resultado;
         }
     }
 }
