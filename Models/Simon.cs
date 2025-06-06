@@ -17,12 +17,12 @@ namespace TP05.Models
         public List<char> generarSecuencia()
         {
 
-            for (int i = 0; i <= meta; i++)
+            for (int i = 0; i < meta; i++)
             {
 
                 Random r = new Random();
 
-                respuestas.Add(colores[r.Next(1, colores.Length + 1)]);
+                respuestas.Add(colores[r.Next(1, colores.Length)]);
 
             }
             return respuestas;

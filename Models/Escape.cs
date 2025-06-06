@@ -8,21 +8,30 @@ namespace TP05.Models
     {
         public Dictionary<int, string> respuestas { get; private set; }
         public Dictionary<int, string> pistas { get; private set; }
-        public int[] secuencias { get; private set; }
+        public string[] secuencias { get; private set; }
         public int salaActual { get; private set; }
         public string nombreJugador { get; private set; }
+        public Wordle wordle { get; private set; }
+        public Simon simon { get; private set; }
 
         public Escape(string nJ)
         {
-            this.respuestas = new Dictionary<int, string>{{1, ""}, {2, ""}, {3, ""}, {4, ""}, {5, ""}};
+            this.respuestas = new Dictionary<int, string>{{1, "m"}, {2, ""}, {3, ""}, {4, ""}, {5, ""}};
             this.pistas = new Dictionary<int, string>{{1, ""}, {2, ""}, {3, ""}, {4, ""}, {5, ""}};
-            this.secuencias = new int[] {8, 20, 30, 40, 50}; //Fibonacci, primos, multiplos de 3, cuadrados, factoriales
+            this.secuencias = new string[] {"8", "20", "30", "40", "50"}; //Fibonacci, primos, multiplos de 3, cuadrados, factoriales
             this.salaActual = 0;
             this.nombreJugador = nJ;
+            this.wordle = new Wordle();
+            this.simon = new Simon();
         }
-        public bool ValidarContraseña(string intento)
+        public bool ValidarContraseña(string intento, string correcto)
         {
-            return intento == respuestas[salaActual];
+            return intento == correcto;
         }
+        public void SumarSala()
+        {
+            salaActual++;
+        }
+
     }
 }
