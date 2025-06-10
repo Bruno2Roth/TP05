@@ -24,7 +24,13 @@ public class HomeController : Controller
         ViewBag.Nombre = nj;
         partida.SumarSala();
         HttpContext.Session.SetString("juego" , Objeto.ObjectToString(partida));
-        return View("Index");
+        redirectToAction("JugarSala");
+    }
+    public IActionResult JugarSala()
+    {
+        HttpContext.Session.GetString("juego");
+        ViewBag.pista = partida.pistas[salaActual]
+        return View("Sala" + partida.salaAcutal);
     }
     [HttpGet]
     public IActionResult Sala1(string secuencia1, string secuencia2, string secuencia3, string secuencia4, string secuencia5, string contraseña1){
