@@ -28,9 +28,20 @@ public class HomeController : Controller
     }
     public IActionResult JugarSala()
     {
-        HttpContext.Session.GetString("juego");
+        Escape partida = Objeto.StringToObject<Escape>(HttpContext.Session.GetString("juego"));
         ViewBag.pista = partida.pistas[salaActual]
         return View("Sala" + partida.salaAcutal);
+    }
+    [HttpGet]
+    public IActionResult PasarSala(string contraseña)
+    {
+        if()
+        {
+        
+        }else
+        {
+            RedirectToAction("JugarSala");
+        }
     }
     [HttpGet]
     public IActionResult Sala1(string secuencia1, string secuencia2, string secuencia3, string secuencia4, string secuencia5, string contraseña1){
