@@ -24,9 +24,13 @@ namespace TP05.Models
             this.wordle = new Wordle();
             this.simon = new Simon();
         }
-        public bool ValidarContraseña(string intento, string correcto)
+        public bool Validar(string intento, string correcto)
         {
             return intento == correcto;
+        }
+        public bool Contraseña(string intento)
+        {
+            return intento == respuestas[salaActual]
         }
         public void SumarSala()
         {
