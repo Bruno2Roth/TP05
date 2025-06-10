@@ -35,13 +35,13 @@ public class HomeController : Controller
     [HttpGet]
     public IActionResult PasarSala(string contraseña)
     {
-        if()
+        Escape partida = Objeto.StringToObject<Escape>(HttpContext.Session.GetString("juego"));
+        if(partida.Contraseña(contraseña))
         {
-        
-        }else
-        {
-            RedirectToAction("JugarSala");
+            partida.SumarSala();
+            HttpContext.Session.SetString("juego" , Objeto.ObjectToString(partida));
         }
+        RedirectToAction("JugarSala");
     }
     [HttpGet]
     public IActionResult Sala1(string secuencia1, string secuencia2, string secuencia3, string secuencia4, string secuencia5, string contraseña1){
