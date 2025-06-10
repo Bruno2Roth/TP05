@@ -29,7 +29,8 @@ public class HomeController : Controller
     public IActionResult JugarSala()
     {
         Escape partida = Objeto.StringToObject<Escape>(HttpContext.Session.GetString("juego"));
-        ViewBag.pista = partida.pistas[salaActual]
+        ViewBag.pista = partida.pistas[salaActual];
+        ViewBag.sala = partida.salaActual;
         return View("Sala" + partida.salaAcutal);
     }
     [HttpGet]
