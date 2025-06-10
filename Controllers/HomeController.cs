@@ -24,7 +24,7 @@ public class HomeController : Controller
         ViewBag.Nombre = nj;
         partida.SumarSala();
         HttpContext.Session.SetString("juego" , Objeto.ObjectToString(partida));
-        redirectToAction("JugarSala");
+        RedirectToAction("JugarSala");
     }
     public IActionResult JugarSala()
     {
