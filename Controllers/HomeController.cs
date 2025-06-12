@@ -17,15 +17,13 @@ public class HomeController : Controller
     {
         return View();
     }
-    [HttpPost]
+    [HttpGet]
     public IActionResult Identificarse(string nj)
     {
         Escape partida = new Escape(nj);
         HttpContext.Session.SetString("juego" , Objeto.ObjectToString(partida));
-        ViewBag.Nombre = nj;
         partida.SumarSala();
         return RedirectToAction("JugarSala");
-
     }
     public IActionResult JugarSala()
     {
@@ -35,6 +33,7 @@ public class HomeController : Controller
             return View("Sala0");   
         }else
         {
+            ViewBag.Nombre = partida.nombreJugador;
             ViewBag.pista = partida.pistas[partida.salaActual];
             ViewBag.sala = partida.salaActual;
             return View("Sala" + partida.salaActual);

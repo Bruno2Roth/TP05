@@ -2,8 +2,15 @@
     ViewData["Title"] = "Index";
 }
 <div>
-    <form action='@Url.Action("Identificarse", "Home")' method="get">
+    @if(ViewBag.Nombre == null){
+<form action='@Url.Action("Identificarse", "Home")' method="get">
         <input type="text" name="nJ"/>
         <input type="submit" value="Entrar">
     </form>
+    }
+    else{
+    <h1>@(ViewBag.Nombre)</h1>
+    }
+
+    
 </div>
