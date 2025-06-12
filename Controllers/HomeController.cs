@@ -21,18 +21,24 @@ public class HomeController : Controller
     public IActionResult Identificarse(string nj)
     {
         Escape partida = new Escape(nj);
+        HttpContext.Session.SetString("juego" , Objeto.ObjectToString(partida));
         ViewBag.Nombre = nj;
         partida.SumarSala();
-        HttpContext.Session.SetString("juego" , Objeto.ObjectToString(partida));
         return RedirectToAction("JugarSala");
 
     }
     public IActionResult JugarSala()
     {
         Escape partida = Objeto.StringToObject<Escape>(HttpContext.Session.GetString("juego"));
-        ViewBag.pista = partida.pistas[partida.salaActual];
-        ViewBag.sala = partida.salaActual;
-        return View("Sala" + partida.salaActual);
+        if(partida == null)
+        {
+            return View("Sala0");   
+        }else
+        {
+            ViewBag.pista = partida.pistas[partida.salaActual];
+            ViewBag.sala = partida.salaActual;
+            return View("Sala" + partida.salaActual);
+        }
     }
     [HttpGet]
     public IActionResult PasarSala(string contraseña)

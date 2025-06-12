@@ -1,15 +1,9 @@
 @{
     ViewData["Title"] = "Index";
 }
-@if(ViewBag.sala == 2)
-{
-    <div>
+<div>
     <form action='@Url.Action("PasarSala", "Home")' method="get">
         <input type="text" name="contraseña"/>
         <input type="submit" value="Entrar">
     </form>
 </div>
-}else
-{
-    @Url.Action("JugarSala", "Home")
-}

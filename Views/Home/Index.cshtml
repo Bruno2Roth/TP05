@@ -3,18 +3,5 @@
 }
 
 <div>
-
-
-    <h1>Index</h1>
-    <p>Bienvenidos al sitio web de NombreProyecto</p>
-@if(ViewBag.Nombre == null){
-    <form action='@Url.Action("Identificarse", "Home")' method="post">
-        Nombre: <input type="text" name="nj" required />
-        <input type="submit" value="Entrar">
-    </form>
-}else{
-    <h1>@(ViewBag.Nombre)</h1>
-    <a href='@Url.Action("Sala1", "Home")'>djwk </a>
-}
-    
+    <a href='@Url.Action("JugarSala", "Home")'>¡Sí!</a>
 </div>

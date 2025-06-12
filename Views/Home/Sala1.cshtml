@@ -1,8 +1,6 @@
 @{
     ViewData["Title"] = "Index";
 }
-@if(ViewBag.sala == 1)
-{
     <div>
     <ul>
     <li>n n n<form action='@Url.Action("Sala1", "Home")' method="post">
@@ -31,7 +29,3 @@
         <input type="submit" value="Entrar">
     </form>
 </div>
-}else
-{
-    @Url.Action("JugarSala", "Home")
-}
