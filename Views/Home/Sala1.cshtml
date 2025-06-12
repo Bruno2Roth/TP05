@@ -1,8 +1,9 @@
 @{
     ViewData["Title"] = "Index";
 }
-<div>
-    <h1>@ViewBag.que</h1>
+@if(ViewBag.sala == 1)
+{
+    <div>
     <ul>
     <li>n n n<form action='@Url.Action("Sala1", "Home")' method="post">
         <input type="text" name="secuencia1"/>
@@ -25,8 +26,12 @@
         <input type="submit" value="Entrar">
     </form> n n n</li>
     </ul>
-    <form action='@Url.Action("Sala1", "Home")' method="get">
-        <input type="text" name="contraseña1"/>
+    <form action='@Url.Action("PasarSala", "Home")' method="get">
+        <input type="text" name="contraseñ"/>
         <input type="submit" value="Entrar">
     </form>
 </div>
+}else
+{
+    @Url.Action("JugarSala", "Home")
+}

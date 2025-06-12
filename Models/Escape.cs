@@ -30,7 +30,7 @@ namespace TP05.Models
         }
         public bool Contraseña(string intento)
         {
-            return intento == respuestas[salaActual]
+            return intento == respuestas[salaActual] 
         }
         public void SumarSala()
         {
