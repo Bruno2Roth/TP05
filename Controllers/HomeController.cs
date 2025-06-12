@@ -22,7 +22,6 @@ public class HomeController : Controller
     {
         Escape partida = new Escape(nj);
         HttpContext.Session.SetString("juego" , Objeto.ObjectToString(partida));
-        partida.SumarSala();
         return RedirectToAction("JugarSala");
     }
     public IActionResult JugarSala()
@@ -45,7 +44,6 @@ public class HomeController : Controller
         Escape partida = Objeto.StringToObject<Escape>(HttpContext.Session.GetString("juego"));
         if(partida.Contraseña(contraseña))
         {
-            partida.SumarSala();
             HttpContext.Session.SetString("juego" , Objeto.ObjectToString(partida));
         }
         return RedirectToAction("JugarSala");
