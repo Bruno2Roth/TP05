@@ -24,8 +24,7 @@ public class HomeController : Controller
         ViewBag.Nombre = nj;
         partida.SumarSala();
         HttpContext.Session.SetString("juego" , Objeto.ObjectToString(partida));
-        RedirectToAction("JugarSala");
-                return View("JugarSala");
+        return RedirectToAction("JugarSala");
 
     }
     public IActionResult JugarSala()
@@ -44,9 +43,7 @@ public class HomeController : Controller
             partida.SumarSala();
             HttpContext.Session.SetString("juego" , Objeto.ObjectToString(partida));
         }
-        RedirectToAction("JugarSala");
-        return View("JugarSala");
-        
+        return RedirectToAction("JugarSala");
     }
     /*[HttpGet]
     public IActionResult Sala1(string secuencia1, string secuencia2, string secuencia3, string secuencia4, string secuencia5, string contraseña1){
