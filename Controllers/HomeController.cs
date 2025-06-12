@@ -24,14 +24,15 @@ public class HomeController : Controller
         ViewBag.Nombre = nj;
         partida.SumarSala();
         HttpContext.Session.SetString("juego" , Objeto.ObjectToString(partida));
-        RedirectToAction("JugarSala");
+        return RedirectToAction("JugarSala");
+
     }
     public IActionResult JugarSala()
     {
         Escape partida = Objeto.StringToObject<Escape>(HttpContext.Session.GetString("juego"));
-        ViewBag.pista = partida.pistas[salaActual];
+        ViewBag.pista = partida.pistas[partida.salaActual];
         ViewBag.sala = partida.salaActual;
-        return View("Sala" + partida.salaAcutal);
+        return View("Sala" + partida.salaActual);
     }
     [HttpGet]
     public IActionResult PasarSala(string contraseña)
@@ -42,26 +43,26 @@ public class HomeController : Controller
             partida.SumarSala();
             HttpContext.Session.SetString("juego" , Objeto.ObjectToString(partida));
         }
-        RedirectToAction("JugarSala");
+        return RedirectToAction("JugarSala");
     }
-    [HttpGet]
+    /*[HttpGet]
     public IActionResult Sala1(string secuencia1, string secuencia2, string secuencia3, string secuencia4, string secuencia5, string contraseña1){
         Escape partida = Objeto.StringToObject<Escape>(HttpContext.Session.GetString("juego"));
         ViewBag.que = partida.salaActual;
         if(partida.salaActual == 1)
         {
-            ViewBag.secuencia1 = partida.ValidarContraseña(secuencia1, partida.secuencias[0]);
-            ViewBag.secuencia2 = partida.ValidarContraseña(secuencia2, partida.secuencias[0]);
-            ViewBag.secuencia3 = partida.ValidarContraseña(secuencia3, partida.secuencias[0]);
-            ViewBag.secuencia4 = partida.ValidarContraseña(secuencia4, partida.secuencias[0]);
-            ViewBag.secuencia5 = partida.ValidarContraseña(secuencia5, partida.secuencias[0]);
-            if(partida.ValidarContraseña(partida.respuestas[1], contraseña1))
+            ViewBag.secuencia1 = partida.Contraseña(secuencia1, partida.secuencias[0]);
+            ViewBag.secuencia2 = partida.Contraseña(secuencia2, partida.secuencias[0]);
+            ViewBag.secuencia3 = partida.Contraseña(secuencia3, partida.secuencias[0]);
+            ViewBag.secuencia4 = partida.Contraseña(secuencia4, partida.secuencias[0]);
+            ViewBag.secuencia5 = partida.Contraseña(secuencia5, partida.secuencias[0]);
+            if(partida.Contraseña(partida.respuestas[1], contraseña1))
             {
                 partida.SumarSala();
                 return View("Sala2");
             }
         }
         return View("Sala1");
-    }
+    }*/
     
 }
