@@ -33,7 +33,10 @@ public class HomeController : Controller
         }else
         {
             ViewBag.Nombre = partida.nombreJugador;
-            ViewBag.pista = partida.pistas[partida.salaActual];
+            if(partida.salaActual != 6)
+            {
+                ViewBag.pista = partida.pistas[partida.salaActual];
+            }
             ViewBag.sala = partida.salaActual;
             return View("Sala" + partida.salaActual);
         }
