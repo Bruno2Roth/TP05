@@ -17,6 +17,14 @@ public class HomeController : Controller
     {
         return View();
     }
+    public IActionResult Historia()
+    {
+        return View();
+    }
+    public IActionResult Creditos()
+    {
+        return View();
+    }
     [HttpGet]
     public IActionResult Identificarse(string nj)
     {
@@ -40,6 +48,11 @@ public class HomeController : Controller
             ViewBag.sala = partida.salaActual;
             return View("Sala" + partida.salaActual);
         }
+    }
+    public IActionResult MostrarPista()
+    {
+        Escape partida = Objeto.StringToObject<Escape>(HttpContext.Session.GetString("juego"));
+        return View("Pista" + partida.salaActual);
     }
     [HttpGet]
     public IActionResult PasarSala(string contraseña)
