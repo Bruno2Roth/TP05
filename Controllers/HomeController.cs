@@ -28,8 +28,11 @@ public class HomeController : Controller
     [HttpGet]
     public IActionResult Identificarse(string nj)
     {
-        Escape partida = new Escape(nj);
-        HttpContext.Session.SetString("juego" , Objeto.ObjectToString(partida));
+        if(nj != null)
+        {
+            Escape partida = new Escape(nj);
+            HttpContext.Session.SetString("juego" , Objeto.ObjectToString(partida));
+        }
         return RedirectToAction("JugarSala");
     }
     public IActionResult JugarSala()
@@ -49,11 +52,17 @@ public class HomeController : Controller
             return View("Sala" + partida.salaActual);
         }
     }
-    public IActionResult MostrarPista()
+    public IActionResult IrPista()
     {
         Escape partida = Objeto.StringToObject<Escape>(HttpContext.Session.GetString("juego"));
-        ViewBag.pista = partida.pistas[salaActual];
-        return View("Pista" + partida.salaActual);
+        if(partida.pistas[salaActual] != null)
+        {
+           ViewBag.pista = partida.pistas[salaActual];
+           return View("Pista" + partida.salaActual);
+        }else
+        {
+            return RedirectToAction("JugarSala");
+        }
     }
     [HttpGet]
     public IActionResult PasarSala(string contraseña)
