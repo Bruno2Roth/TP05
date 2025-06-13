@@ -55,9 +55,9 @@ public class HomeController : Controller
     public IActionResult IrPista()
     {
         Escape partida = Objeto.StringToObject<Escape>(HttpContext.Session.GetString("juego"));
-        if(partida.pistas[salaActual] != null)
+        if(partida.pistas[partida.salaActual] != null)
         {
-           ViewBag.pista = partida.pistas[salaActual];
+           ViewBag.pista = partida.pistas[partida.salaActual];
            return View("Pista" + partida.salaActual);
         }else
         {
