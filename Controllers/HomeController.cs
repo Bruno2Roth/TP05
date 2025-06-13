@@ -74,6 +74,11 @@ public class HomeController : Controller
         }
         return RedirectToAction("JugarSala");
     }
+    [HttpGet]
+    public IActionResult ValidarSecuencia()
+    {
+        
+    }
     /*[HttpGet]
     public IActionResult Sala1(string secuencia1, string secuencia2, string secuencia3, string secuencia4, string secuencia5, string contraseña1){
         Escape partida = Objeto.StringToObject<Escape>(HttpContext.Session.GetString("juego"));

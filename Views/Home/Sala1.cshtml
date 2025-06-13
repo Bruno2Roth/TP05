@@ -2,30 +2,30 @@
     ViewData["Title"] = "Sala 1";
 }
     <div>
-    <ul>
-    <li>n n n<form action='@Url.Action("Sala1", "Home")' method="post">
-        <input type="text" name="secuencia1"/>
-        <input type="submit" value="Entrar">
-    </form> n n n</li>
-    <li>n n n<form action='@Url.Action("Sala1", "Home")' method="post">
-        <input type="text" name="secuencia2"/>
-        <input type="submit" value="Entrar">
-    </form> n n n</li>
-    <li>n n n<form action='@Url.Action("Sala1", "Home")' method="post">
-        <input type="text" name="secuencia3"/>
-        <input type="submit" value="Entrar">
-    </form> n n n</li>
-    <li>n n n<form action='@Url.Action("Sala1", "Home")' method="post">
-        <input type="text" name="secuencia4"/>
-        <input type="submit" value="Entrar">
-    </form> n n n</li>
-    <li>n n n<form action='@Url.Action("Sala1", "Home")' method="post">
-        <input type="text" name="secuencia5"/>
-        <input type="submit" value="Entrar">
-    </form> n n n</li>
-    </ul>
-    <form action='@Url.Action("PasarSala", "Home")' method="get">
-        <input type="text" name="contraseña"/>
-        <input type="submit" value="Entrar">
-    </form>
+        <ul>
+            <li>2 <form action='@Url.Action("ValidarSecuencia", "Home")' method="get">
+                <input type="text" name="secuencia1"/>
+                <input type="submit" value="Entrar">
+            </form> 5 7 11 13</li>
+            <li>0 <form action='@Url.Action("ValidarSecuencia", "Home")' method="get">
+                <input type="text" name="secuencia2"/>
+                <input type="submit" value="Entrar">
+            </form> 4 9 16 25</li>
+            <li>1 <form action='@Url.Action("ValidarSecuencia", "Home")' method="get">
+                <input type="text" name="secuencia3"/>
+                <input type="submit" value="Entrar">
+            </form> 6 24 120 720</li>
+            <li>0 3 6 9 <form action='@Url.Action("ValidarSecuencia", "Home")' method="get">
+                <input type="text" name="secuencia4"/>
+                <input type="submit" value="Entrar">
+            </form> 15 18</li>
+            <li>0 1 1 2 3 <form action='@Url.Action("ValidarSecuencia", "Home")' method="get">
+                <input type="text" name="secuencia5"/>
+                <input type="submit" value="Entrar">
+            </form> 8 13 21</li>
+        </ul>
+        <form action='@Url.Action("PasarSala", "Home")' method="get">
+            <input type="text" name="contraseña"/>
+            <input type="submit" value="Entrar">
+        </form>
 </div>
