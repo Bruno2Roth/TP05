@@ -2,6 +2,34 @@
     ViewData["Title"] = "Sala 4";
 }
 <div>
+    
+    @for(int i = 0; i < ViewBag.numero; i++)
+    {
+        if(ViewBag.secuencia[i] == 'R')
+        {
+            <img src="~/archivos/rojo.jpg" alt="ERROR"></img>
+        }else
+        {
+            if(ViewBag.secuencia[i] == 'G')
+            {
+                <img src="~/archivos/verde.jfif" alt="ERROR"></img>
+            }else
+            {
+                if(ViewBag.secuencia[i] == 'B')
+                {
+                    <img src="~/archivos/azul.png" alt="ERROR"></img>
+                }else
+                {
+                    <img src="~/archivos/amarillo.png" alt="ERROR"></img>
+                }
+            }
+        }
+        System.Threading.Thread.Sleep(1000);
+    }
+    <form action='@Url.Action("ValidarSimon", "Home")' method="get">
+        <input type="text" name="intento"/>
+        <input type="submit" value="Entrar">
+    </form>
     <form action='@Url.Action("PasarSala", "Home")' method="get">
         <input type="text" name="contraseña"/>
         <input type="submit" value="Entrar">

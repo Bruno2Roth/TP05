@@ -9,9 +9,9 @@ namespace TP05.Models
 
         public Simon()
         {
+            this.colores = new char[] { 'R', 'G', 'B', 'Y' };
             this.respuestas = generarSecuencia();
             this.contador = 0;
-            this.colores = new char[] { 'R', 'G', 'B', 'Y' };
             this.meta = 10;
         }
         public List<char> generarSecuencia()
@@ -24,16 +24,18 @@ namespace TP05.Models
             }
             return secuencia;
         }
-        public bool ValidarContraseña(char intento)
+        public bool ValidarContraseña(string intento)
         {
-            bool correcto;
-            if(intento == respuestas[contador]){
+            bool correcto = false;
+            string bien = "";
+            foreach (char c in this.respuestas)
+            {
+                bien = bien + c;
+            }
+            if(intento == bien)
+            {
                 correcto = true;
                 contador++;
-            }
-            else{
-                correcto = false;
-                contador = 0;
             }
             return correcto;
         }

@@ -2,6 +2,7 @@
     ViewData["Title"] = "Sala 5";
 }
 <div>
+    <a href='@Url.Action("IrPista", "Home")'>Obtener pista</a>
     <form action='@Url.Action("PasarSala", "Home")' method="get">
         <input type="text" name="contraseña"/>
         <input type="submit" value="Entrar">

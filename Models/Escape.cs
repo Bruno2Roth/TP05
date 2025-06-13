@@ -24,9 +24,10 @@ namespace TP05.Models
 
         public Escape(string nJ)
         {
-            this.respuestas = new Dictionary<int, string>{{1, "m"}, {2, "a"}, {3, "b"}, {4, "c"}, {5, "d"}};
-            this.pistas = new Dictionary<int, string>{{1, ""}, {2, ""}, {3, ""}, {4, ""}, {5, ""}};
-            this.secuencias = new string[] {"3", "1", "2", "12", "5"}; //Fibonacci, primos, multiplos de 3, cuadrados, factoriales
+            this.respuestas = new Dictionary<int, string>{{1, "cable"}, {2, "a"}, {3, "1014"}, {4, "c"}, {5, "escapedone"}};
+            this.pistas = new Dictionary<int, string>{{1, "Los números guardan secretos que hablan, cada cifra es un paso en el abecedario. Descifren su mensaje y encontrarán la palabra."}, {3, "Las cámaras no solo observan... esconden fragmentos del misterio. Fijen su mirada en las imágenes que cruzan rápido, pues allí está la suma que les falta."},
+             {5, "No todos los caminos llevan a la salida... pero uno sí."}};
+            this.secuencias = new string[] {"3", "1", "2", "12", "5"};
             this.salaActual = 1;
             this.nombreJugador = nJ;
             this.wordle = new Wordle();

@@ -44,12 +44,32 @@ public class HomeController : Controller
         }else
         {
             ViewBag.Nombre = partida.nombreJugador;
-            if(partida.salaActual != 6)
-            {
-                ViewBag.pista = partida.pistas[partida.salaActual];
-            }
             ViewBag.sala = partida.salaActual;
+            if(partida.salaActual == 2)
+            {
+                
+            }else
+            {
+                if(partida.salaActual == 4)
+                {
+                    ViewBag.secuencia = partida.simon.respuestas;
+                    ViewBag.numero = partida.simon.contador;
+                }
+            }
             return View("Sala" + partida.salaActual);
+        }
+    }
+    [HttpGet]
+    public IActionResult ValidarSimon(string intento)
+    {
+        Escape partida = Objeto.StringToObject<Escape>(HttpContext.Session.GetString("juego"));
+        partida.simon.ValidarContraseña(intento);
+        if(partida.simon.contador == 8)
+        {
+            return RedirectToAction("PasarSala", new { contraseña = "c" });
+        }else
+        {
+            return RedirectToAction("JugarSala");
         }
     }
     public IActionResult IrPista()
@@ -58,7 +78,7 @@ public class HomeController : Controller
         if(partida.pistas[partida.salaActual] != null)
         {
            ViewBag.pista = partida.pistas[partida.salaActual];
-           return View("Pista" + partida.salaActual);
+           return View("Pista");
         }else
         {
             return RedirectToAction("JugarSala");
@@ -68,35 +88,37 @@ public class HomeController : Controller
     public IActionResult PasarSala(string contraseña)
     {
         Escape partida = Objeto.StringToObject<Escape>(HttpContext.Session.GetString("juego"));
-        if(partida.Contraseña(contraseña))
+        if(partida.Contraseña(contraseña.ToLower()))
         {
             HttpContext.Session.SetString("juego" , Objeto.ObjectToString(partida));
         }
         return RedirectToAction("JugarSala");
     }
     [HttpGet]
-    public IActionResult ValidarSecuencia()
+    public IActionResult ValidarSecuencia(string secuencia, int num)
     {
-        
-    }
-    /*[HttpGet]
-    public IActionResult Sala1(string secuencia1, string secuencia2, string secuencia3, string secuencia4, string secuencia5, string contraseña1){
         Escape partida = Objeto.StringToObject<Escape>(HttpContext.Session.GetString("juego"));
-        ViewBag.que = partida.salaActual;
-        if(partida.salaActual == 1)
+        if(partida.Validar(secuencia, partida.secuencias[num]))
         {
-            ViewBag.secuencia1 = partida.Contraseña(secuencia1, partida.secuencias[0]);
-            ViewBag.secuencia2 = partida.Contraseña(secuencia2, partida.secuencias[0]);
-            ViewBag.secuencia3 = partida.Contraseña(secuencia3, partida.secuencias[0]);
-            ViewBag.secuencia4 = partida.Contraseña(secuencia4, partida.secuencias[0]);
-            ViewBag.secuencia5 = partida.Contraseña(secuencia5, partida.secuencias[0]);
-            if(partida.Contraseña(partida.respuestas[1], contraseña1))
+            switch(num)
             {
-                partida.SumarSala();
-                return View("Sala2");
+                case 0:
+                ViewBag.secuencia0 = true;
+                break;
+                case 1:
+                ViewBag.secuencia1 = true;
+                break;
+                case 2:
+                ViewBag.secuencia2 = true;
+                break;
+                case 3:
+                ViewBag.secuencia3 = true;
+                break;
+                case 4:
+                ViewBag.secuencia4 = true;
+                break;
             }
         }
         return View("Sala1");
-    }*/
-    
+    }
 }

@@ -3,27 +3,56 @@
 }
     <div>
         <ul>
-            <li>2 <form action='@Url.Action("ValidarSecuencia", "Home")' method="get">
-                <input type="text" name="secuencia1"/>
+        @if(ViewBag.secuencia0 == null){
+<li>2 <form action='@Url.Action("ValidarSecuencia", "Home")' method="get">
+                <input type="text" name="secuencia"/>
+                <input type="hidden" name="num" value="0"/>
                 <input type="submit" value="Entrar">
             </form> 5 7 11 13</li>
+        } else {
+            <h1>2 3 5 7 11 13</h1>
+        }
+            @if(ViewBag.secuencia1 == null){
             <li>0 <form action='@Url.Action("ValidarSecuencia", "Home")' method="get">
-                <input type="text" name="secuencia2"/>
+                <input type="text" name="secuencia"/>
+                <input type="hidden" name="num" value="1"/>
                 <input type="submit" value="Entrar">
-            </form> 4 9 16 25</li>
+            </form> 4 9 16 25</li>}else
+            {
+                <h1>0 1 4 9 16 25</h1>
+            }
+            @if(ViewBag.secuencia2 == null){
             <li>1 <form action='@Url.Action("ValidarSecuencia", "Home")' method="get">
-                <input type="text" name="secuencia3"/>
+                <input type="text" name="secuencia"/>
+                <input type="hidden" name="num" value="2"/>
                 <input type="submit" value="Entrar">
-            </form> 6 24 120 720</li>
+            </form> 6 24 120 720</li>}
+            else
+            {
+                <h1>1 2 6 24 120 720</h1>
+            }
+            @if(ViewBag.secuencia3 == null){
             <li>0 3 6 9 <form action='@Url.Action("ValidarSecuencia", "Home")' method="get">
-                <input type="text" name="secuencia4"/>
+                <input type="text" name="secuencia"/>
+                <input type="hidden" name="num" value="3"/>
                 <input type="submit" value="Entrar">
-            </form> 15 18</li>
+            </form> 15 18</li>}
+            else
+            {
+                <h1>0 3 6 9 12 15 18</h1>
+            }
+            @if(ViewBag.secuencia4 == null){
             <li>0 1 1 2 3 <form action='@Url.Action("ValidarSecuencia", "Home")' method="get">
-                <input type="text" name="secuencia5"/>
+                <input type="text" name="secuencia"/>
+                <input type="hidden" name="num" value="4"/>
                 <input type="submit" value="Entrar">
-            </form> 8 13 21</li>
-        </ul>
+            </form> 8 13 21</li>}
+            else
+            {
+                <h1>0 1 1 2 3 5 8 13 21</h1>
+            }
+        </ul> 
+        <a href='@Url.Action("IrPista", "Home")'>Obtener pista</a>
         <form action='@Url.Action("PasarSala", "Home")' method="get">
             <input type="text" name="contraseña"/>
             <input type="submit" value="Entrar">
