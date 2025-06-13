@@ -47,7 +47,7 @@ public class HomeController : Controller
             ViewBag.sala = partida.salaActual;
             if(partida.salaActual == 2)
             {
-                
+                return RedirectToAction("JugarWordle");
             }else
             {
                 if(partida.salaActual == 4)
@@ -58,6 +58,10 @@ public class HomeController : Controller
             }
             return View("Sala" + partida.salaActual);
         }
+    }
+    public IActionResult JugarWordle()
+    {
+        
     }
     [HttpGet]
     public IActionResult ValidarSimon(string intento)

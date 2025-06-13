@@ -51,6 +51,10 @@ namespace TP05.Models
         {
             salaActual++;
         }
+        public void ReiniciarWordle()
+        {
+            this.wordle = new Wordle();
+        }
 
     }
 }
