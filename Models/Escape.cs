@@ -25,7 +25,7 @@ namespace TP05.Models
         public Escape(string nJ)
         {
             this.respuestas = new Dictionary<int, string>{{1, "m"}, {2, "a"}, {3, "b"}, {4, "c"}, {5, "d"}};
-            this.pistas = new Dictionary<int, string>{{0, ""}, {1, ""}, {2, ""}, {3, ""}, {4, ""}, {5, ""}};
+            this.pistas = new Dictionary<int, string>{{1, ""}, {2, ""}, {3, ""}, {4, ""}, {5, ""}};
             this.secuencias = new string[] {"8", "20", "30", "40", "50"}; //Fibonacci, primos, multiplos de 3, cuadrados, factoriales
             this.salaActual = 1;
             this.nombreJugador = nJ;
