@@ -4,13 +4,21 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - NombreProyecto</title>
+    <title>@ViewData["Title"] - Escapa de Ort</title>
+    <link rel="icon" type="image/x-icon" href="imagenes/logo.png">
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 </head>
 
 <body>
     <header>
-        NombreProyecto
+        <nav>
+            <ul>
+                <li><a href='@UrlAction("Creditos", "Home")'>Jugar/seguir</a></li>
+                <li><a href='@UrlAction("JugarSala", "Home")'>Creditos</a></li>
+                <li><a href='@UrlAction("Historia", "Home")'>Historia</a></li>
+            </ul>
+        </nav>
+        <h1>Escapa de Ort</h1>
     </header>
 
     <main role="main">
@@ -18,7 +26,7 @@
     </main>
 
     <footer>
-        &copy; @DateTime.Now.Year - NombreProyecto
+        &copy; @DateTime.Now.Year - Escapa de Ort
     </footer>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
