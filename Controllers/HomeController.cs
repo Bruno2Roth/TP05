@@ -52,6 +52,7 @@ public class HomeController : Controller
     public IActionResult MostrarPista()
     {
         Escape partida = Objeto.StringToObject<Escape>(HttpContext.Session.GetString("juego"));
+        ViewBag.pista = partida.pistas[salaActual];
         return View("Pista" + partida.salaActual);
     }
     [HttpGet]
