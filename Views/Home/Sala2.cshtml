@@ -14,26 +14,23 @@
     @foreach (int intento in ViewBag.intentos)
     {
         <div>
-            @for (int i = 0; i < intento.Length; i++)
+            @for (int i = 0; i < ViewBag.intentos.Lenght(); i++)
             {
-                char letra = intento[i];
                 string claseColor = "gris";
-
-                if (ViewBag.numeroCorrecto[i] == letra)
+                int n = intento;
+                if (ViewBag.numeroCorrecto[i] == n)
                 {
                     claseColor = "verde";
                 }
-                else if (ViewBag.numeroCorrecto.Contains(letra))
+                else if (ViewBag.numeroCorrecto.Contains(n))
                 {
                     claseColor = "amarillo";
                 }
 
-                <div class="cuadro @claseColor">@letra</div>
+                <div class="cuadro @claseColor">@n</div>
             }
         </div>
     }
 </div>
 
 <p class="intentos-restantes">Intentos restantes: @(6 - ViewBag.intentos)</p>
-
-
