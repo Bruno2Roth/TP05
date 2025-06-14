@@ -7,10 +7,13 @@ namespace TP05.Models
     {
         public int intentos { get; private set; }
         public string numeroElegido { get; private set; }
+        public List<string> intentosAnteriores { get; private set; }
+
         public Wordle()
         {
             intentos = 0;
             Random rnd = new Random();
+            intentosAnteriores = new List<string>();
             numeroElegido = rnd.Next(10000, 100000).ToString();
         }
         public Dictionary<string, int> DevolverResultado(string intento)
@@ -21,23 +24,33 @@ namespace TP05.Models
                 {"incorrectas", 0},
                 {"estan", 0}
             };
+
+            intentosAnteriores.Add(intento);
+            
             for (int i = 0; i < intento.Count(); i++)
             {
                 if (numeroElegido[i] == intento[i])
                 {
                     resultado["correctas"]++;
-                }else
+                }
+                else
                 {
-                    if(numeroElegido.Contains(intento[i]))
+                    if (numeroElegido.Contains(intento[i]))
                     {
                         resultado["estan"]++;
-                    }else
+                    }
+                    else
                     {
                         resultado["incorrectas"]++;
                     }
                 }
             }
             return resultado;
+        }
+
+        public void aumentarIntento()
+        {
+            intentos++;
         }
     }
 }

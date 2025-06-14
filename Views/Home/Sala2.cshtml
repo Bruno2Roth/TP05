@@ -1,9 +1,39 @@
 @{
     ViewData["Title"] = "Sala 2";
 }
-<div>
-    <form action='@Url.Action("PasarSala", "Home")' method="get">
-        <input type="text" name="contraseña"/>
-        <input type="submit" value="Entrar">
+
+@if (ViewBag.intentos < 6)
+{
+    <form method="post" action="@Url.Action("ValidarWordle", "Home")" class="form-wordle">
+        <input type="text" name="intento" maxlength="5" minlength="5" pattern="[0-9]{5}" required class="input-wordle" />
+        <input type="submit" value="Intentar" class="btn-wordle" />
     </form>
+}
+
+<div class="tablero-wordle">
+    @foreach (int intento in ViewBag.intentos)
+    {
+        <div>
+            @for (int i = 0; i < intento.Length; i++)
+            {
+                char letra = intento[i];
+                string claseColor = "gris";
+
+                if (ViewBag.numeroCorrecto[i] == letra)
+                {
+                    claseColor = "verde";
+                }
+                else if (ViewBag.numeroCorrecto.Contains(letra))
+                {
+                    claseColor = "amarillo";
+                }
+
+                <div class="cuadro @claseColor">@letra</div>
+            }
+        </div>
+    }
 </div>
+
+<p class="intentos-restantes">Intentos restantes: @(6 - ViewBag.intentos)</p>
+
+
