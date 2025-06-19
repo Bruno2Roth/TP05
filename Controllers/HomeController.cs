@@ -64,31 +64,24 @@ public class HomeController : Controller
     public IActionResult JugarWordle()
     {
         Escape partida = Objeto.StringToObject<Escape>(HttpContext.Session.GetString("juego"));
-        ViewBag.Intentos = partida.wordle.intentos;
+        ViewBag.intentos = partida.wordle.intentos;
         ViewBag.numeroCorrecto = partida.wordle.numeroElegido;
         return View("Sala2");
     }
 
     [HttpPost]
-public IActionResult ValidarWordle(string intento)
-{
-    Escape partida = Objeto.StringToObject<Escape>(HttpContext.Session.GetString("juego"));
-    partida.wordle.aumentarIntento();
-    Dictionary<string, int> resultado = partida.wordle.DevolverResultado(intento);
-
-    ViewBag.Correctas = resultado["correctas"];
-    ViewBag.Estan = resultado["estan"];
-    ViewBag.Incorrectas = resultado["incorrectas"];
-    ViewBag.Intentos = partida.wordle.intentos;
-
-    if(resultado["correctas"] == 5)
+    public IActionResult ValidarWordle(string intento)
     {
-        return RedirectToAction("PasarSala", new { contraseña = "c" }); // clave para pasar de sala
+        Escape partida = Objeto.StringToObject<Escape>(HttpContext.Session.GetString("juego"));
+        partida.wordle.DevolverResultado(intento);
+        ViewBag.intentos = partida.wordle.intentos;
+        if(partida.wordle.intentos[partida.wordle.intentos.Count() - 1].correctas == 5)
+        {
+            return RedirectToAction("PasarSala", new { contraseña = "c" }); // clave para pasar de sala
+        }
+        HttpContext.Session.SetString("juego", Objeto.ObjectToString(partida));
+        return View("Sala2");
     }
-
-    HttpContext.Session.SetString("juego", Objeto.ObjectToString(partida));
-    return View("Sala2");
-}
 
     [HttpGet]
     public IActionResult ValidarSimon(string intento)

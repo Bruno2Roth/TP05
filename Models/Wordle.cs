@@ -5,18 +5,17 @@ namespace TP05.Models
 {
     public class Wordle
     {
-        public int intentos { get; private set; }
+        public List<IntentoWordle> intentos { get; private set; }
         public string numeroElegido { get; private set; }
         public List<string> intentosAnteriores { get; private set; }
 
         public Wordle()
         {
-            intentos = 0;
+            intentos = new List<IntentoWordle>();
             Random rnd = new Random();
-            intentosAnteriores = new List<string>();
             numeroElegido = rnd.Next(10000, 100000).ToString();
         }
-        public Dictionary<string, int> DevolverResultado(string intento)
+        public void DevolverResultado(string intento)
         {
             Dictionary<string, int> resultado = new Dictionary<string, int>()
             {
@@ -25,8 +24,6 @@ namespace TP05.Models
                 {"estan", 0}
             };
 
-            intentosAnteriores.Add(intento);
-            
             for (int i = 0; i < intento.Count(); i++)
             {
                 if (numeroElegido[i] == intento[i])
@@ -45,12 +42,8 @@ namespace TP05.Models
                     }
                 }
             }
-            return resultado;
-        }
-
-        public void aumentarIntento()
-        {
-            intentos++;
+            IntentoWordle nuevoIntento = new IntentoWordle(intento, resultado["correctas"], resultado["estan"], resultado["incorrectas"]);
+            this.intentos.Add(nuevoIntento);
         }
     }
 }

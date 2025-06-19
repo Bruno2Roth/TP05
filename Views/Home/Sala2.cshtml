@@ -2,11 +2,11 @@
     ViewData["Title"] = "Sala 2";
 }
 
-@if (ViewBag.intentos < 6)
+@if (ViewBag.intentos.Count < 6)
 {
-    <form method="post" action="@Url.Action("ValidarWordle", "Home")" class="form-wordle">
-        <input type="text" name="intento" maxlength="5" minlength="5" pattern="[0-9]{5}" required class="input-wordle" />
-        <input type="submit" value="Intentar" class="btn-wordle" />
+    <form method="post" action='@Url.Action("ValidarWordle", "Home")'>
+        <input type="text" name="intento" maxlength="5" minlength="5"/>
+        <input type="submit" value="Intentar"/>
     </form>
 }
 
