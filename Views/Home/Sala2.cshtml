@@ -1,36 +1,20 @@
 @{
     ViewData["Title"] = "Sala 2";
 }
+<form method="post" action='@Url.Action("ValidarWordle", "Home")'>
+    <input type="text" name="intento" maxlength="5" minlength="5"/>
+    <input type="submit" value="Intentar"/>
+</form>
 
-@if (ViewBag.intentos.Count < 6)
-{
-    <form method="post" action='@Url.Action("ValidarWordle", "Home")'>
-        <input type="text" name="intento" maxlength="5" minlength="5"/>
-        <input type="submit" value="Intentar"/>
-    </form>
-}
-
-<div class="tablero-wordle">
-    @foreach (int intento in ViewBag.intentos)
+<div>
+    @foreach (IntentoWordle intento in ViewBag.intentos)
     {
-        <div>
-            @for (int i = 0; i < ViewBag.intentos.Lenght(); i++)
-            {
-                string claseColor = "gris";
-                int n = intento;
-                if (ViewBag.numeroCorrecto[i] == n)
-                {
-                    claseColor = "verde";
-                }
-                else if (ViewBag.numeroCorrecto.Contains(n))
-                {
-                    claseColor = "amarillo";
-                }
-
-                <div class="cuadro @claseColor">@n</div>
-            }
-        </div>
+        <p>Intento: @(intento.intento)</p>
+        <p>Están en la posición correcta: @(intento.correctas)</p>
+        <p>Están pero en la posición incorrecta: @(intento.estan)</p>
+        <p>No están: @(intento.incorrectas)</p>
     }
 </div>
 
-<p class="intentos-restantes">Intentos restantes: @(6 - ViewBag.intentos)</p>
+<p class="intentos-restantes">Intentos restantes: @(6 - ViewBag.intentos.Count)</p>
+<p>@ViewBag.numero</p>

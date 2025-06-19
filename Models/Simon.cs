@@ -1,10 +1,18 @@
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using Newtonsoft.Json;
 namespace TP05.Models
 {
     public class Simon
     {
+        [JsonProperty]
         public List<char> respuestas { get; private set; }
+        [JsonProperty]
         public int contador { get; private set; }
+        [JsonProperty]
         public int meta { get; private set; }
+        [JsonProperty]
         public char[] colores { get; private set; }
 
         public Simon()

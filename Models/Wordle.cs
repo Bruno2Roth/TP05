@@ -1,13 +1,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Newtonsoft.Json;
 namespace TP05.Models
 {
     public class Wordle
     {
+        [JsonProperty]
         public List<IntentoWordle> intentos { get; private set; }
+        [JsonProperty]
         public string numeroElegido { get; private set; }
-        public List<string> intentosAnteriores { get; private set; }
 
         public Wordle()
         {

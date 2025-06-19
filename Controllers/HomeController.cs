@@ -26,7 +26,7 @@ public class HomeController : Controller
         return View();
     }
     [HttpGet]
-    public IActionResult Identificarse(string nj)
+   public IActionResult Identificarse(string nj)
     {
         if (nj != null)
         {
@@ -64,8 +64,8 @@ public class HomeController : Controller
     public IActionResult JugarWordle()
     {
         Escape partida = Objeto.StringToObject<Escape>(HttpContext.Session.GetString("juego"));
+        ViewBag.numero = partida.wordle.numeroElegido;
         ViewBag.intentos = partida.wordle.intentos;
-        ViewBag.numeroCorrecto = partida.wordle.numeroElegido;
         return View("Sala2");
     }
 
@@ -74,12 +74,13 @@ public class HomeController : Controller
     {
         Escape partida = Objeto.StringToObject<Escape>(HttpContext.Session.GetString("juego"));
         partida.wordle.DevolverResultado(intento);
-        ViewBag.intentos = partida.wordle.intentos;
+        HttpContext.Session.SetString("juego", Objeto.ObjectToString(partida));
         if(partida.wordle.intentos[partida.wordle.intentos.Count() - 1].correctas == 5)
         {
             return RedirectToAction("PasarSala", new { contraseña = "c" }); // clave para pasar de sala
         }
-        HttpContext.Session.SetString("juego", Objeto.ObjectToString(partida));
+        ViewBag.numero = partida.wordle.numeroElegido;
+        ViewBag.intentos = partida.wordle.intentos;
         return View("Sala2");
     }
 
