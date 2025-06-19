@@ -45,7 +45,6 @@ namespace TP05.Models
                 SumarSala();
             }
             return correcto;
-
         }
         public void SumarSala()
         {

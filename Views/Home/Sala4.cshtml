@@ -1,6 +1,15 @@
 @{
     ViewData["Title"] = "Sala 4";
 }
+
+<form method="post" action='@Url.Action("ValidarSimon", "Home")'>
+    <input type="button" value="Rojo" ONCLIck="LlenoTextconColor('R')">
+    <input type="button" value="Verde" ONCLIck="LlenoTextconColor('G')">
+    <input type="button" value="Amarillo" ONCLIck="LlenoTextconColor('Y')">
+    <input type="button" value="Blue" ONCLIck="LlenoTextconColor('B')">
+    <input type="text" name="secuencia" id="secuencia" value="">
+    <input type="submit" value="Intentar"/>
+</form>
 <div>
     
     @for(int i = 0; i < ViewBag.numero; i++)
@@ -24,14 +33,16 @@
                 }
             }
         }
-        System.Threading.Thread.Sleep(1000);
+        System.Threading.Thread.Sleep(500);
     }
-    <form action='@Url.Action("ValidarSimon", "Home")' method="get">
-        <input type="text" name="intento"/>
-        <input type="submit" value="Entrar">
-    </form>
-    <form action='@Url.Action("PasarSala", "Home")' method="get">
-        <input type="text" name="contraseña"/>
-        <input type="submit" value="Entrar">
-    </form>
 </div>
+
+<script>
+    function LlenoTextconColor(color) 
+    {
+        {   
+            document.getElementById("secuencia").value = document.getElementById("secuencia").value + color;
+        }
+        
+    }
+</script>

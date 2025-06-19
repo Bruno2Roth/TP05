@@ -56,6 +56,7 @@ public class HomeController : Controller
                 {
                     ViewBag.secuencia = partida.simon.respuestas;
                     ViewBag.numero = partida.simon.contador;
+                    return RedirectToAction("JugarSimon");
                 }
             }
             return View("Sala" + partida.salaActual);
@@ -77,23 +78,36 @@ public class HomeController : Controller
         HttpContext.Session.SetString("juego", Objeto.ObjectToString(partida));
         if(partida.wordle.intentos[partida.wordle.intentos.Count() - 1].correctas == 5)
         {
-            return RedirectToAction("PasarSala", new { contraseña = "c" }); // clave para pasar de sala
+            return RedirectToAction("PasarSala", new { contraseña = "a" }); // clave para pasar de sala
         }
         ViewBag.numero = partida.wordle.numeroElegido;
         ViewBag.intentos = partida.wordle.intentos;
         return View("Sala2");
     }
 
+    public IActionResult JugarSimon()
+    {
+        Escape partida = Objeto.StringToObject<Escape>(HttpContext.Session.GetString("juego"));
+        ViewBag.secuencia = partida.simon.respuestas;
+        ViewBag.numero = partida.simon.contador;
+        return View("Sala4");
+    }
+
     [HttpGet]
     public IActionResult ValidarSimon(string intento)
     {
         Escape partida = Objeto.StringToObject<Escape>(HttpContext.Session.GetString("juego"));
-        partida.simon.ValidarContraseña(intento);
-        if (partida.simon.contador == 8)
+        
+        if (partida.simon.ValidarContraseña(intento);)
         {
-            return RedirectToAction("PasarSala", new { contraseña = "c" });
-        }
-        else
+            if()
+            {
+                return RedirectToAction("PasarSala", new { contraseña = "c" });
+            }else
+            {
+                
+            }
+        }else
         {
             return RedirectToAction("JugarSala");
         }
