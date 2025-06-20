@@ -46,6 +46,10 @@ public class HomeController : Controller
         {
             ViewBag.Nombre = partida.nombreJugador;
             ViewBag.sala = partida.salaActual;
+            if(partida.SalaActual == 5)
+            {
+                ViewBag.qrs = partida.qrs;
+            }
             if (partida.salaActual == 2)
             {
                 return RedirectToAction("JugarWordle");
