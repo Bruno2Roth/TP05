@@ -69,7 +69,6 @@ public class HomeController : Controller
     public IActionResult JugarWordle()
     {
         Escape partida = Objeto.StringToObject<Escape>(HttpContext.Session.GetString("juego"));
-        ViewBag.numero = partida.wordle.numeroElegido;
         ViewBag.intentos = partida.wordle.intentos;
         return View("Sala2");
     }
@@ -84,7 +83,6 @@ public class HomeController : Controller
         {
             return RedirectToAction("PasarSala", new { contraseña = "a" }); // clave para pasar de sala
         }
-        ViewBag.numero = partida.wordle.numeroElegido;
         ViewBag.intentos = partida.wordle.intentos;
         return View("Sala2");
     }
