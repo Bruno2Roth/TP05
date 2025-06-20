@@ -186,6 +186,22 @@ input[type="text"], input[type="password"] {
   margin-right: 6px;
 }
 
+.sala5 ul
+{
+  width: 80%;
+}
+
+.sala5 ul li
+{
+  width: 30%;
+}
+
+.sala5 ul li img
+{
+  width: 99.9%;
+  height: auto;
+}
+
 /* Responsive */
 @media (max-width: 700px) {
   nav {

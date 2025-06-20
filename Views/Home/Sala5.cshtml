@@ -6,7 +6,7 @@
     <ul>
         @foreach(string qr in ViewBag.qrs)
         {
-            <li><img src=qr alt="ERROR"></li>
+            <li><img src="@Url.Content(qr)" alt="ERROR"></li>
         }
     </ul>
     <form action='@Url.Action("PasarSala", "Home")' method="get">
