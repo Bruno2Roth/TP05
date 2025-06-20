@@ -1,16 +1,17 @@
 @{
     ViewData["Title"] = "Sala 4";
 }
-
-<form method="post" action='@Url.Action("ValidarSimon", "Home")'>
-    <input type="button" value="Rojo" ONCLIck="LlenoTextconColor('R')">
-    <input type="button" value="Verde" ONCLIck="LlenoTextconColor('G')">
-    <input type="button" value="Amarillo" ONCLIck="LlenoTextconColor('Y')">
-    <input type="button" value="Blue" ONCLIck="LlenoTextconColor('B')">
-    <input type="hidden" name="secuencia" id="secuencia" value="">
-    <input type="submit" value="Enviar"/>
-</form>
-<div>
+<section class="sala4">
+    <form method="post" action='@Url.Action("ValidarSimon", "Home")'>
+        <div>
+            <input type="button" value="Rojo" ONCLIck="LlenoTextconColor('R')">
+            <input type="button" value="Verde" ONCLIck="LlenoTextconColor('G')">
+            <input type="button" value="Amarillo" ONCLIck="LlenoTextconColor('Y')">
+            <input type="button" value="Blue" ONCLIck="LlenoTextconColor('B')">
+        </div>
+        <input type="hidden" name="secuencia" id="secuencia" value="">
+        <input type="submit" value="Enviar"/>
+    </form>
     @for(int i = 0; i < ViewBag.numero; i++)
     {
         if(ViewBag.secuencia[i] == 'R')
@@ -34,7 +35,7 @@
         }
         System.Threading.Thread.Sleep(500);
     }
-</div>
+</section>
 
 <script>
     function LlenoTextconColor(color) 
