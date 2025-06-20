@@ -58,8 +58,8 @@ public class HomeController : Controller
             {
                 if (partida.salaActual == 4)
                 {
-                    //ViewBag.secuencia = partida.simon.respuestas;
-                    //ViewBag.numero = partida.simon.contador;
+                    ViewBag.secuencia = partida.simon.respuestas;
+                    ViewBag.numero = partida.simon.contador;
                     return RedirectToAction("JugarSimon");
                 }
             }
@@ -81,7 +81,7 @@ public class HomeController : Controller
         HttpContext.Session.SetString("juego", Objeto.ObjectToString(partida));
         if(partida.wordle.intentos[partida.wordle.intentos.Count() - 1].correctas == 5)
         {
-            return RedirectToAction("PasarSala", new { contraseña = "a" }); // clave para pasar de sala
+            return RedirectToAction("PasarSala", new { contraseña = "a" });
         }
         ViewBag.intentos = partida.wordle.intentos;
         return View("Sala2");
