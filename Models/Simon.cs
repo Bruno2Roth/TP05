@@ -19,7 +19,7 @@ namespace TP05.Models
         {
             this.colores = new char[] { 'R', 'G', 'B', 'Y' };
             this.respuestas = generarSecuencia();
-            this.contador = 0;
+            this.contador = 1;
             this.meta = 10;
         }
         public List<char> generarSecuencia()
