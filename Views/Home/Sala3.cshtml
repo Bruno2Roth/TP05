@@ -1,23 +1,22 @@
 @{
     ViewData["Title"] = "Sala 3";
 }
-<div>
+<section class="sala3">
     <h2>La suma de los dos primeros números es igual al tercero, y el cuarto es el cuádruple del primero. ¿Cuál es la combinación?</h2>
-    <video autoplay loop muted playsinline>
-        <source src="~/archivos/camaraU.mov" type="video/mp4">
-        Tu navegador no soporta el video.
-    </video>
-    <video autoplay loop muted playsinline>
-        <source src="~/archivos/camaraN.mov" type="video/mp4">
-        Tu navegador no soporta el video.
-    </video>
-    <video autoplay loop muted playsinline>
-        <source src="~/archivos/camaraO.mov" type="video/mp4">
-        Tu navegador no soporta el video.
-    </video>
+    <div class="videos">
+        <video autoplay loop muted playsinline>
+            <source src="~/archivos/camaraU.mov" type="video/mp4">
+        </video>
+        <video autoplay loop muted playsinline>
+            <source src="~/archivos/camaraN.mov" type="video/mp4">
+        </video>
+        <video autoplay loop muted playsinline>
+            <source src="~/archivos/camaraO.mov" type="video/mp4">
+        </video>
+    </div>
     <a href='@Url.Action("IrPista", "Home")'>Obtener pista</a>
     <form action='@Url.Action("PasarSala", "Home")' method="get">
-        <input type="text" name="contraseña"/>
+        <input type="text" name="contraseña" />
         <input type="submit" value="Entrar">
     </form>
-</div>
+</section>
