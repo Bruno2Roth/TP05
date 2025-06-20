@@ -26,7 +26,7 @@ namespace TP05.Models
 
         public Escape(string nJ)
         {
-            this.qrs = new List<string>{}
+            this.qrs = new List<string>{"~/archivos/malisimo1.jpg", "~/archivos/malisimo2.jpg", "~/archivos/malisimo3.jpg", "~/archivos/malisimo4.jpg", "~/archivos/malisimo5.jpg", "~/archivos/malisimo6.jpg", "~/archivos/yendo.jpg", "~/archivos/malisimo8.jpg", "~/archivos/malisimo9.jpg"}
             this.respuestas = new Dictionary<int, string>{{1, "cable"}, {2, "a"}, {3, "1014"}, {4, "c"}, {5, "escapedone"}};
             this.pistas = new Dictionary<int, string>{{1, "Los números guardan secretos que hablan, cada cifra es un paso en el abecedario. Descifren su mensaje y encontrarán la palabra."}, {3, "Las cámaras no solo observan... esconden fragmentos del misterio. Fijen su mirada en las imágenes que cruzan rápido, pues allí está la suma que les falta."},
              {5, "No todos los caminos llevan a la salida... pero uno sí."}};
