@@ -2,6 +2,7 @@
     ViewData["Title"] = "Sala 1";
 }
     <section class="sala1">
+        <h1 class="consigna">Completá las secuencias</h1>
         <ul>
         @if(ViewBag.secuencia0 == null){
 <li>2 <form action='@Url.Action("ValidarSecuencia", "Home")' method="get">
