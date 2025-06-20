@@ -2,14 +2,14 @@
     ViewData["Title"] = "Sala 5";
 }
 <section class="sala5">
-    <a href='@Url.Action("IrPista", "Home")'>Obtener pista</a>
+    <a href='@Url.Action("IrPista", "Home")' class="bPista">Obtener pista</a>
     <ul>
         @foreach(string qr in ViewBag.qrs)
         {
             <li><img src="@Url.Content(qr)" alt="ERROR"></li>
         }
     </ul>
-    <form action='@Url.Action("PasarSala", "Home")' method="get">
+    <form action='@Url.Action("PasarSala", "Home")' method="get" class="form-contraseña">
         <input type="text" name="contraseña"/>
         <input type="submit" value="Enviar">
     </form>

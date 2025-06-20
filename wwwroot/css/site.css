@@ -1,16 +1,14 @@
 html {
-  font-size: 14px;
+  font-size: 100%;
   min-height: 100%;
 }
 
-/* Reset básico */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Tipografía y fondo */
 body {
   font-family: 'Segoe UI', Arial, sans-serif;
   background: #f6f8fa;
@@ -18,45 +16,52 @@ body {
   min-height: 100vh;
 }
 
-/* Header y navegación */
 header {
   background: #1d3557;
   color: #fff;
-  padding: 12px 0;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  padding-top: 2%;
+  padding-bottom: 2%;
+  box-shadow: 0 0.2% 0.8% rgba(0,0,0,0.05);
 }
 
 nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 0 20px;
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 2%;
+  padding-right: 2%;
 }
 
 .logo-nav {
-  font-size: 1.5rem;
+  font-size: 150%;
   font-weight: bold;
   color: #f1faee;
   text-decoration: none;
-  letter-spacing: 2px;
-  margin-right: 32px;
+  letter-spacing: 0.2em;
+  margin-right: 4%;
 }
 
+/* NAV BOTONES ESTILO */
 .lista-nav {
   list-style: none;
   display: flex;
-  gap: 18px;
+  gap: 4%; /* más separados */
+  margin-left: 1%;
 }
 
 .enlace-nav {
   color: #f1faee;
   text-decoration: none;
-  font-size: 1rem;
-  transition: color 0.2s;
-  padding: 6px 12px;
-  border-radius: 4px;
+  font-size: 100%;
+  transition: color 0.2s, background 0.2s;
+  padding: 0.8em 1.2em; /* más padding */
+  border-radius: 1em; /* más redondeado */
+  background: transparent;
+  margin: 0 0.5em;
+  display: inline-block;
 }
 .enlace-nav:hover {
   background: #457b9d;
@@ -65,41 +70,39 @@ nav {
 
 /* Main */
 main {
-  max-width: 900px;
-  margin: 32px auto;
+  max-width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 3%;
+  margin-bottom: 3%;
   background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 2px 16px 0 rgba(0,0,0,0.06);
-  padding: 32px 24px;
-}
-
-/* Footer */
-footer {
-  text-align: center;
-  padding: 16px 0;
-  background: #1d3557;
-  color: #f1faee;
-  margin-top: 40px;
-  font-size: 0.95rem;
-  border-radius: 0 0 10px 10px;
+  border-radius: 1.1%;
+  box-shadow: 0 0.2% 1.6% 0 rgba(0,0,0,0.06);
+  padding: 3% 2.5%;
 }
 
 /* Sección de introducción */
 .intro {
   text-align: center;
-  padding: 30px 10px;
-  margin-bottom: 30px;
+  padding-top: 3%;
+  padding-bottom: 3%;
+  padding-left: 1%;
+  padding-right: 1%;
+  margin-bottom: 3%;
 }
 .intro p {
-  font-size: 1.3rem;
-  margin-bottom: 20px;
+  font-size: 130%;
+  margin-bottom: 2%;
 }
 .intro a {
   display: inline-block;
   background: #457b9d;
   color: #fff;
-  padding: 12px 28px;
-  border-radius: 5px;
+  padding-top: 1.2%;
+  padding-bottom: 1.2%;
+  padding-left: 3%;
+  padding-right: 3%;
+  border-radius: 1em;
   text-decoration: none;
   font-weight: 600;
   transition: background 0.2s;
@@ -109,118 +112,226 @@ footer {
 }
 
 /* Salas */
-.sala1 {
+.sala1, .sala2, .sala4, .sala5 {
   background: #f1faee;
-  padding: 30px 20px;
-  border-radius: 8px;
-  box-shadow: 0 1px 8px rgba(69,123,157,0.08);
-  margin-bottom: 32px;
+  padding: 3% 2%;
+  border-radius: 0.8%;
+  box-shadow: 0 0.1% 0.8% rgba(69,123,157,0.08);
+  margin-bottom: 3.2%;
 }
-.sala1 .consigna {
-  margin-bottom: 22px;
-  color: #1d3557;
-  font-size: 1.35rem;
-}
-.sala1 ul {
-  margin-bottom: 24px;
-}
-.sala1 li {
-  background: #fff;
-  padding: 12px 10px;
-  margin: 10px 0;
-  border-radius: 5px;
-  box-shadow: 0 1px 4px rgba(69,123,157,0.09);
-  font-size: 1.05rem;
-}
-.sala1 form {
-  display: inline;
-}
-.sala1 input[type="text"] {
-  padding: 6px 8px;
-  border-radius: 3px;
-  border: 1px solid #bfc9d1;
-  margin: 0 6px;
-  width: 90px;
-}
-.sala1 input[type="submit"] {
+
+/* BOTÓN GENERAL (submit, buttons, bPista) */
+input[type="submit"], input[type="button"], .bPista {
   background: #457b9d;
   color: #fff;
   border: none;
-  padding: 6px 16px;
-  border-radius: 3px;
+  padding: 0.8em 2em;
+  border-radius: 1.5em;
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 100%;
   transition: background 0.2s;
+  margin: 0.2em 0.2em 0.2em 0;
+  font-weight: 500;
 }
-.sala1 input[type="submit"]:hover {
-  background: #1d3557;
-}
-
-.sala1 > a {
-  display: inline-block;
-  margin: 16px 0 12px;
+input[type="submit"]:hover, input[type="button"]:hover, .bPista:hover {
   background: #1d3557;
   color: #fff;
-  padding: 10px 18px;
-  border-radius: 5px;
+}
+
+/* BOTÓN DE OBTENER PISTA UNIFICADO */
+.bPista {
+  display: inline-block;
+  margin-top: 1.6%;
+  margin-bottom: 1.2%;
+  background: #457b9d;
+  color: #fff;
+  padding: 1% 1.8%;
+  border-radius: 1.5em;
   text-decoration: none;
   font-weight: 500;
   transition: background 0.2s;
 }
-.sala1 > a:hover {
+.bPista:hover {
   background: #a8dadc;
   color: #1d3557;
 }
 
-/* Formularios generales */
-form {
-  margin-top: 12px;
-  margin-bottom: 14px;
+/* FORMULARIO CONTRASEÑA UNIFICADO */
+.form-contraseña {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+  align-items: center;
+  justify-content: center;
+  margin: 2% 0;
 }
-input[type="text"], input[type="password"] {
-  padding: 8px 10px;
-  border: 1px solid #bfc9d1;
-  border-radius: 3px;
-  font-size: 1rem;
-  background: #f4f6fa;
-  margin-right: 6px;
+.form-contraseña input[type="text"], 
+.form-contraseña input[type="password"], 
+.form-contraseña input[type="number"] {
+  padding: 0.8em 1.2em;
+  border-radius: 1em;
+  border: 1.5px solid #bfc9d1;
+  font-size: 110%;
+  margin-right: 0.5em;
+}
+.form-contraseña input[type="submit"] {
+  border-radius: 1.5em;
 }
 
-.sala5 ul
-{
+.sala1 .consigna,
+.sala2 .consigna,
+.sala4 .consigna {
+  margin-bottom: 2.2%;
+  color: #1d3557;
+  font-size: 135%;
+}
+
+.sala1 ul, .sala5 ul {
+  margin-bottom: 2.4%;
   width: 80%;
+  list-style: none;
+  padding-left: 0;
 }
 
-.sala5 ul li
-{
+.sala1 li {
+  background: #fff;
+  padding: 1.2% 1%;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  border-radius: 0.5%;
+  box-shadow: 0 0.1% 0.4% rgba(69,123,157,0.09);
+  font-size: 105%;
+}
+
+/* INTENTOS EN LA SALA 2 Y 1 */
+.sala2 .intento-group, .sala1 .intento-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2%;
+  justify-content: flex-start;
+}
+
+.sala2 .intento, .sala1 .intento {
+  background: #fff;
+  border-radius: 1.2em;
+  box-shadow: 0 0.2em 1em 0 rgba(69,123,157,0.12);
+  padding: 2% 2%;
+  margin: 1% 1% 2% 0;
+  flex: 1 1 28%;
+  min-width: 26%;
+  max-width: 32%;
+  margin-bottom: 2%;
+}
+@media (max-width: 900px) {
+  .sala2 .intento, .sala1 .intento {
+    flex-basis: 100%;
+    min-width: 80%;
+    max-width: 100%;
+  }
+}
+
+/* CAMPOS INPUTS */
+.sala1 form,
+.sala2 form,
+.sala5 form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+  align-items: center;
+  justify-content: center;
+  margin: 2% 0;
+}
+
+.sala1 input[type="text"],
+.sala2 input[type="number"],
+.sala5 input[type="text"] {
+  padding: 0.8em 1.2em;
+  border-radius: 1em;
+  border: 1.5px solid #bfc9d1;
+  font-size: 110%;
+  margin-right: 0.5em;
+  width: 14em;
+  min-width: 7em;
+}
+
+/* Sala5 imágenes (QRs) */
+.sala5 ul {
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2%;
+  justify-content: center;
+}
+.sala5 ul li {
   width: 30%;
+  display: flex;
+  justify-content: center;
 }
-
-.sala5 ul li img
-{
+.sala5 ul li img {
   width: 99.9%;
   height: auto;
+  display: block;
+  border-radius: 2em;
+  margin-bottom: 1.2em;
+  box-shadow: 0 0.2em 1em 0 rgba(69,123,157,0.14);
 }
 
-/* Responsive */
-@media (max-width: 700px) {
-  nav {
-    flex-direction: column;
-    gap: 10px;
-    padding: 0 8px;
-  }
-  main {
-    padding: 14px 4px;
-  }
-  .sala1 {
-    padding: 14px 5px;
-  }
+/* Sala4 botones */
+.sala4 input[type="button"] {
+  margin: 1% 1.5% 1% 0;
+  padding: 1% 2%;
+  font-size: 100%;
+  background: #457b9d;
+  color: #fff;
+  border: none;
+  border-radius: 1.5em;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.sala4 input[type="button"]:hover {
+  background: #1d3557;
+}
+
+/* Créditos */
+.creditos {
+  margin-top: 3%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 3%;
+}
+.creditos > div {
+  width: 28%;
+  background: #fff;
+  border-radius: 1%;
+  box-shadow: 0 0.2% 1.2% 0 rgba(0,0,0,0.07);
+  padding: 2% 1.5%;
+  text-align: center;
+}
+.creditos img {
+  width: 65%;
+  border-radius: 1.5%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
+/* Videos en sala 3 */
+.sala3 video, .sala3 iframe {
+  width: 60%;
+  max-width: 500px;
+  height: 320px;
+  border-radius: 1.5em;
+  margin-bottom: 2em;
+  box-shadow: 0 0.2em 1em 0 rgba(69,123,157,0.12);
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Extras para títulos y mensajes */
 h1, h2, h3 {
   color: #1d3557;
-  margin-bottom: 16px;
+  margin-bottom: 1.6%;
   font-weight: 700;
 }
 
@@ -231,4 +342,48 @@ a {
 }
 a:hover {
   color: #1d3557;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding-top: 1.6%;
+  padding-bottom: 1.6%;
+  background: #1d3557;
+  color: #f1faee;
+  margin-top: 4%;
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+  nav {
+    flex-direction: column;
+    gap: 1%;
+    padding-left: 0.8%;
+    padding-right: 0.8%;
+  }
+  main {
+    padding-top: 1.4%;
+    padding-bottom: 1.4%;
+    padding-left: 0.4%;
+    padding-right: 0.4%;
+  }
+  .sala1, .sala2, .sala4, .sala5 {
+    padding-top: 1.4%;
+    padding-bottom: 1.4%;
+    padding-left: 0.5%;
+    padding-right: 0.5%;
+  }
+  .creditos {
+    flex-direction: column;
+    gap: 2%;
+  }
+  .creditos > div {
+    width: 95%;
+    margin-bottom: 2%;
+  }
+  .sala3 video, .sala3 iframe {
+    width: 98%;
+    height: 180px;
+  }
 }

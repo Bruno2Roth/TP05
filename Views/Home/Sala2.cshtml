@@ -6,7 +6,7 @@
     <p>Intentos restantes: @(6 - ViewBag.intentos.Count)</p>
     @foreach (IntentoWordle intento in ViewBag.intentos)
     {
-        <div>
+        <div class="intento">
             <p>Intento: @(intento.intento)</p>
             <p>Están en la posición correcta: @(intento.correctas)</p>
             <p>Están pero en la posición incorrecta: @(intento.estan)</p>
