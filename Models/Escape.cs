@@ -8,6 +8,8 @@ namespace TP05.Models
     public class Escape
     {
         [JsonProperty]
+        public List<string> qrs { get; private set; }
+        [JsonProperty]
         public Dictionary<int, string> respuestas { get; private set; }
         [JsonProperty]
         public Dictionary<int, string> pistas { get; private set; }
@@ -24,6 +26,7 @@ namespace TP05.Models
 
         public Escape(string nJ)
         {
+            this.qrs = new List<string>{}
             this.respuestas = new Dictionary<int, string>{{1, "cable"}, {2, "a"}, {3, "1014"}, {4, "c"}, {5, "escapedone"}};
             this.pistas = new Dictionary<int, string>{{1, "Los números guardan secretos que hablan, cada cifra es un paso en el abecedario. Descifren su mensaje y encontrarán la palabra."}, {3, "Las cámaras no solo observan... esconden fragmentos del misterio. Fijen su mirada en las imágenes que cruzan rápido, pues allí está la suma que les falta."},
              {5, "No todos los caminos llevan a la salida... pero uno sí."}};
