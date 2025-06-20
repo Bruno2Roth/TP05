@@ -54,8 +54,8 @@ public class HomeController : Controller
             {
                 if (partida.salaActual == 4)
                 {
-                    ViewBag.secuencia = partida.simon.respuestas;
-                    ViewBag.numero = partida.simon.contador;
+                    //ViewBag.secuencia = partida.simon.respuestas;
+                    //ViewBag.numero = partida.simon.contador;
                     return RedirectToAction("JugarSimon");
                 }
             }
@@ -100,16 +100,16 @@ public class HomeController : Controller
         
         if (partida.simon.ValidarContraseña(intento);)
         {
-            if()
+            if(partida.simon.contador == partida.simon.meta)
             {
                 return RedirectToAction("PasarSala", new { contraseña = "c" });
             }else
             {
-                
+                return RedirectToAction("JugarSimon");
             }
         }else
         {
-            return RedirectToAction("JugarSala");
+            return RedirectToAction("JugarSimon");
         }
     }
     public IActionResult IrPista()
