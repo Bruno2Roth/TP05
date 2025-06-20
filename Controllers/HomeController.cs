@@ -46,7 +46,7 @@ public class HomeController : Controller
         {
             ViewBag.Nombre = partida.nombreJugador;
             ViewBag.sala = partida.salaActual;
-            if(partida.SalaActual == 5)
+            if(partida.salaActual == 5)
             {
                 ViewBag.qrs = partida.qrs;
             }
@@ -100,7 +100,7 @@ public class HomeController : Controller
     {
         Escape partida = Objeto.StringToObject<Escape>(HttpContext.Session.GetString("juego"));
         
-        if (partida.simon.ValidarContraseña(intento);)
+        if (partida.simon.ValidarContraseña(intento))
         {
             if(partida.simon.contador == partida.simon.meta)
             {

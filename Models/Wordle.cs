@@ -19,33 +19,46 @@ namespace TP05.Models
         }
         public void DevolverResultado(string intento)
         {
-            Dictionary<string, int> resultado = new Dictionary<string, int>()
+            Dictionary<char, int> letrasRestantes = new Dictionary<char, int>();
+            foreach (char c in numeroElegido)
             {
-                {"correctas", 0},
-                {"incorrectas", 0},
-                {"estan", 0}
-            };
+                if (letrasRestantes.ContainsKey(c))
+                    letrasRestantes[c]++;
+                else
+                    letrasRestantes[c] = 1;
+            }
 
-            for (int i = 0; i < intento.Count(); i++)
+            int correctas = 0;
+            int estan = 0;
+            int incorrectas = 0;
+
+            for (int i = 0; i < intento.Length; i++)
             {
                 if (numeroElegido[i] == intento[i])
                 {
-                    resultado["correctas"]++;
+                    correctas++;
+                    letrasRestantes[intento[i]]--;
                 }
-                else
+            }
+            for (int i = 0; i < intento.Length; i++)
+            {
+                if (numeroElegido[i] != intento[i])
                 {
-                    if (numeroElegido.Contains(intento[i]))
+                    char letra = intento[i];
+                    if (letrasRestantes.ContainsKey(letra) && letrasRestantes[letra] > 0)
                     {
-                        resultado["estan"]++;
+                        estan++;
+                        letrasRestantes[letra]--;
                     }
                     else
                     {
-                        resultado["incorrectas"]++;
+                        incorrectas++;
                     }
                 }
             }
-            IntentoWordle nuevoIntento = new IntentoWordle(intento, resultado["correctas"], resultado["estan"], resultado["incorrectas"]);
+            IntentoWordle nuevoIntento = new IntentoWordle(intento, correctas, estan, incorrectas);
             this.intentos.Add(nuevoIntento);
         }
+
     }
 }

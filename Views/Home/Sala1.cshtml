@@ -8,7 +8,7 @@
 <li>2 <form action='@Url.Action("ValidarSecuencia", "Home")' method="get">
                 <input type="text" name="secuencia"/>
                 <input type="hidden" name="num" value="0"/>
-                <input type="submit" value="Entrar">
+                <input type="submit" value="Adivinar">
             </form> 5 7 11 13</li>
         } else {
             <h1>2 3 5 7 11 13</h1>
@@ -17,7 +17,7 @@
             <li>0 <form action='@Url.Action("ValidarSecuencia", "Home")' method="get">
                 <input type="text" name="secuencia"/>
                 <input type="hidden" name="num" value="1"/>
-                <input type="submit" value="Entrar">
+                <input type="submit" value="Adivinar">
             </form> 4 9 16 25</li>}else
             {
                 <h1>0 1 4 9 16 25</h1>
@@ -26,7 +26,7 @@
             <li>1 <form action='@Url.Action("ValidarSecuencia", "Home")' method="get">
                 <input type="text" name="secuencia"/>
                 <input type="hidden" name="num" value="2"/>
-                <input type="submit" value="Entrar">
+                <input type="submit" value="Adivinar">
             </form> 6 24 120 720</li>}
             else
             {
@@ -36,7 +36,7 @@
             <li>0 3 6 9 <form action='@Url.Action("ValidarSecuencia", "Home")' method="get">
                 <input type="text" name="secuencia"/>
                 <input type="hidden" name="num" value="3"/>
-                <input type="submit" value="Entrar">
+                <input type="submit" value="Adivinar">
             </form> 15 18</li>}
             else
             {
@@ -46,7 +46,7 @@
             <li>0 1 1 2 3 <form action='@Url.Action("ValidarSecuencia", "Home")' method="get">
                 <input type="text" name="secuencia"/>
                 <input type="hidden" name="num" value="4"/>
-                <input type="submit" value="Entrar">
+                <input type="submit" value="Adivinar">
             </form> 8 13 21</li>}
             else
             {
@@ -55,7 +55,7 @@
         </ul> 
         <a href='@Url.Action("IrPista", "Home")'>Obtener pista</a>
         <form action='@Url.Action("PasarSala", "Home")' method="get">
-            <input type="text" name="contraseña"/>
-            <input type="submit" value="Entrar">
+            Contraseña: <input type="text" name="contraseña"/>
+            <input type="submit" value="Ingresar">
         </form>
 </section>
