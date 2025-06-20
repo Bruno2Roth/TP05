@@ -7,11 +7,10 @@
     <input type="button" value="Verde" ONCLIck="LlenoTextconColor('G')">
     <input type="button" value="Amarillo" ONCLIck="LlenoTextconColor('Y')">
     <input type="button" value="Blue" ONCLIck="LlenoTextconColor('B')">
-    <input type="text" name="secuencia" id="secuencia" value="">
-    <input type="submit" value="Intentar"/>
+    <input type="hidden" name="secuencia" id="secuencia" value="">
+    <input type="submit" value="Enviar"/>
 </form>
 <div>
-    
     @for(int i = 0; i < ViewBag.numero; i++)
     {
         if(ViewBag.secuencia[i] == 'R')
