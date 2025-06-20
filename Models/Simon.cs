@@ -44,6 +44,9 @@ namespace TP05.Models
             {
                 correcto = true;
                 contador++;
+            }else
+            {
+                contador = 1;
             }
             return correcto;
         }
