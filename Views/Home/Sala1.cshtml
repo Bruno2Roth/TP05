@@ -1,7 +1,7 @@
 @{
     ViewData["Title"] = "Sala 1";
 }
-    <div>
+    <section class="sala1">
         <ul>
         @if(ViewBag.secuencia0 == null){
 <li>2 <form action='@Url.Action("ValidarSecuencia", "Home")' method="get">
@@ -57,4 +57,4 @@
             <input type="text" name="contraseña"/>
             <input type="submit" value="Entrar">
         </form>
-</div>
+</section>
