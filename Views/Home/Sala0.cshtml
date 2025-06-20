@@ -1,9 +1,12 @@
 @{
     ViewData["Title"] = "Sala 0";
 }
-<div>
+<section class="sala0">
     <form action='@Url.Action("Identificarse", "Home")' method="get">
-        Ingresa tu nombre: <input type="text" name="nj"/>
+        <label>
+            Ingresa tu nombre:
+            <input type="text" name="nj"/>
+        </label>
         <input type="submit" value="Entrar">
     </form>
-</div>
+</section>
