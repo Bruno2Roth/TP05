@@ -1,20 +1,20 @@
 @{
     ViewData["Title"] = "Sala 2";
 }
-<form method="post" action='@Url.Action("ValidarWordle", "Home")'>
-    <input type="text" name="intento" maxlength="5" minlength="5"/>
-    <input type="submit" value="Intentar"/>
-</form>
-
-<div>
+<section class="sala2">
+    <p>Intentos restantes: @(6 - ViewBag.intentos.Count)</p>
+    <p>@ViewBag.numero</p>
     @foreach (IntentoWordle intento in ViewBag.intentos)
     {
-        <p>Intento: @(intento.intento)</p>
-        <p>Están en la posición correcta: @(intento.correctas)</p>
-        <p>Están pero en la posición incorrecta: @(intento.estan)</p>
-        <p>No están: @(intento.incorrectas)</p>
+        <div>
+            <p>Intento: @(intento.intento)</p>
+            <p>Están en la posición correcta: @(intento.correctas)</p>
+            <p>Están pero en la posición incorrecta: @(intento.estan)</p>
+            <p>No están: @(intento.incorrectas)</p>
+        </div>
     }
-</div>
-
-<p class="intentos-restantes">Intentos restantes: @(6 - ViewBag.intentos.Count)</p>
-<p>@ViewBag.numero</p>
+    <form method="post" action='@Url.Action("ValidarWordle", "Home")'>
+        <input type="text" name="intento" maxlength="5" minlength="5" />
+        <input type="submit" value="Intentar"/>
+    </form>
+</section>
