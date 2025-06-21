@@ -93,8 +93,17 @@ public class HomeController : Controller
             {
                 return RedirectToAction("PasarSala", new { contraseña = "a" });
             }
-            ViewBag.intentos = partida.wordle.intentos;
-            return View("Sala2");
+            if (partida.wordle.intentos.Count > 15)
+            {
+                partida.ReiniciarWordle();
+                HttpContext.Session.SetString("juego", Objeto.ObjectToString(partida));
+                return RedirectToAction("JugarSala");
+            }
+            else
+            {
+                ViewBag.intentos = partida.wordle.intentos;
+                return View("Sala2");
+            }
         }
         else
         {
