@@ -1,32 +1,24 @@
 ﻿@{
     ViewData["Title"] = "Creditos";
 }
-<section class="creditos">
-    <div>
+
+@if(ViewBag.creadores != null){
+    <section class="creditos">
+        @foreach(Persona persona in ViewBag.creadores)
+        {
+            <div>
+                <h2>
+                    @persona.nombre
+                </h2>
+                <h3>
+                    @persona.rol
+                </h3>
+                <img src="@Url.Content(persona.foto)" alt="">
+            </div>
+        }
+    </section>
+}else{
         <h2>
-            Francisco Castillo
+            Aún no te has identificado...
         </h2>
-        <h3>
-          Egresado Ort Info 2026
-        </h3>
-        <img src="~/archivos/Francisco.jpg" alt="ERROR">
-    </div>
-    <div>
-        <h2>
-            Bruno Roth
-        </h2>
-        <h3>
-          Egresado Ort Info 2026
-        </h3>
-        <img src="~/archivos/Bruno.jpg" alt="ERROR">
-    </div>
-    <div>
-        <h2>
-            Maica Trutner
-        </h2>
-        <h3>
-          Egresada Ort Info 2026
-        </h3>
-        <img src="~/archivos/maica.jpg" alt="ERROR">
-    </div>
-</section>
+}

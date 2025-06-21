@@ -18,9 +18,9 @@ namespace TP05.Models
         public Simon()
         {
             this.colores = new char[] { 'R', 'G', 'B', 'Y' };
-            this.respuestas = generarSecuencia();
             this.contador = 1;
             this.meta = 10;
+            this.respuestas = generarSecuencia();
         }
         public List<char> generarSecuencia()
         {

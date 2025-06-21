@@ -23,6 +23,11 @@ public class HomeController : Controller
     }
     public IActionResult Creditos()
     {
+        Escape partida = Objeto.StringToObject<Escape>(HttpContext.Session.GetString("juego"));
+        if (partida != null)
+        {
+            ViewBag.creadores = partida.creadores;
+        }
         return View();
     }
     [HttpGet]
@@ -59,7 +64,7 @@ public class HomeController : Controller
             {
                 if (partida.salaActual == 4)
                 {
-                    return RedirectToAction("PasarSala", new { contraseña = "c" });
+                    //return RedirectToAction("PasarSala", new { contraseña = "c" });
                     ViewBag.secuencia = partida.simon.respuestas;
                     ViewBag.numero = partida.simon.contador;
                     return RedirectToAction("JugarSimon");

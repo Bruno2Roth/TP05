@@ -44,6 +44,8 @@ nav {
   margin-right: 4%;
 }
 
+
+
 /* NAV BOTONES ESTILO */
 .lista-nav {
   list-style: none;
@@ -387,4 +389,40 @@ footer {
     width: 98%;
     height: 180px;
   }
+}
+
+.background-blue
+{
+background-color: rgb(0, 0, 37)!important;
+}
+
+.background-yellow
+{
+background-color: rgb(68, 68, 0)!important;
+}
+.background-green
+{
+background-color: rgb(0, 61, 0)!important;
+}
+.background-red
+{
+background-color: rgb(83, 0, 0)!important;
+}
+
+.background-blue-high
+{
+background-color: blue!important;
+}
+
+.background-yellow-high
+{
+background-color: rgb(255, 255, 0)!important;
+}
+.background-green-high
+{
+background-color: rgb(0, 255, 0)!important;
+}
+.background-red-high
+{
+background-color: rgb(255, 0, 0)!important;
 }
