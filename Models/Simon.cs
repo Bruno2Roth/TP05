@@ -34,11 +34,15 @@ namespace TP05.Models
         }
         public bool ValidarContraseña(string intento)
         {
-            bool correcto = false;
+            contador++;
+            return true;
+            bool correcto = true;
             string bien = "";
-            foreach (char c in this.respuestas)
+            int i = 0;
+            while (i < contador)
             {
-                bien = bien + c;
+                bien = bien + this.respuestas[i];
+                i++;
             }
             if(intento == bien)
             {
@@ -46,6 +50,7 @@ namespace TP05.Models
                 contador++;
             }else
             {
+                correcto = false;
                 contador = 1;
             }
             return correcto;

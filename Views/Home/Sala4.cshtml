@@ -5,7 +5,7 @@
 <section class="sala4">
     
     <h1 class="consigna">Simon, seguí la secuencia de colores</h1>
-    <input type="button" value="Mostrar secuencia" ONCLIck="MostrarSecuencia()">
+    <input type="button" id="button-mostrar" value="Mostrar secuencia" ONCLIck="MostrarSecuencia()">
     <form method="post" action='@Url.Action("ValidarSimon", "Home")'>
         <div>
             <input type="button" name="red-button" id="red-button" value="Rojo" ONCLIck="LlenoTextconColor('R')" class="background-red">
@@ -16,29 +16,7 @@
         <input type="hidden" name="secuencia" id="secuencia" value="">
         <input type="submit" value="Enviar"/>
     </form>
-    @for(int i = 0; i < ViewBag.secuencia.Count; i++)
-    {
-        if(ViewBag.secuencia[i] == 'R')
-        {
-            <img src="~/archivos/rojo.jpg" alt="ERROR"></img>
-        }else
-        {
-            if(ViewBag.secuencia[i] == 'G')
-            {
-                <img src="~/archivos/verde.jfif" alt="ERROR"></img>
-            }else
-            {
-                if(ViewBag.secuencia[i] == 'B')
-                {
-                    <img src="~/archivos/azul.png" alt="ERROR"></img>
-                }else
-                {
-                    <img src="~/archivos/amarillo.png" alt="ERROR"></img>
-                }
-            }
-        }
-        System.Threading.Thread.Sleep(500);
-    }
+    
 </section>
 
 <script>
@@ -46,10 +24,10 @@
 
     function LlenoTextconColor(color) 
     {
-        {   
-            document.getElementById("secuencia").value = document.getElementById("secuencia").value + color;
-        }
+        document.getElementById("secuencia").value = document.getElementById("secuencia").value + color;
+        console.log(document.getElementById("secuencia").value);
     }
+
     function esperar(ms) {
         var ahora = Date.now(), fin = ahora + ms;
         //while (Date.now() < fin) {} // esto bloquea completamente TODO
@@ -58,54 +36,40 @@
     
     function MostrarSecuencia()
     {
-        
-
-        var secuencia = '@ViewBag.secuencia';
         var nivel = '@ViewBag.numero';
         var secuencia = @Html.Raw(Json.Serialize(ViewBag.secuencia));
         var i = 0;
-        nivel = 4;
-        secuencia = ['Y','G','B','R'];
-                
+        console.log(nivel);
+        console.log(secuencia);
+        const map = {
+            'G': { id: "green-button", normal: "background-green", high: "background-green-high" },
+            'Y': { id: "yellow-button", normal: "background-yellow", high: "background-yellow-high" },
+            'R': { id: "red-button", normal: "background-red", high: "background-red-high" },
+            'B': { id: "blue-button", normal: "background-blue", high: "background-blue-high" }
+        };
+
         while (i < nivel){
-            var color = secuencia[i];
-            console.log(color);
-            if (color == "Y"){
-                document.getElementById('yellow-button').classList.add('background-yellow-high');
-                document.getElementById('yellow-button').classList.remove('background-yellow');
-                esperar(2000);
-                document.getElementById('yellow-button').classList.add('background-yellow');
-                document.getElementById('yellow-button').classList.remove('background-yellow-high');
-                
-            }
-            else if (color == "B"){
-                document.getElementById('blue-button').classList.add('background-blue-high');
-                document.getElementById('blue-button').classList.remove('background-blue');
-                //esperar(2000);
-                //document.getElementById('blue-button').classList.add('background-blue');
-                //document.getElementById('blue-button').classList.remove('background-blue-high');
-               
-            }
-            else if (color == "G"){
-                document.getElementById('green-button').classList.add('background-green-high');
-                document.getElementById('green-button').classList.remove('background-green');
-                //esperar(2000);
-                //document.getElementById('green-button').classList.add('background-green');
-                //document.getElementById('green-button').classList.remove('background-green-high');
-                
-            }
-            else if (color == "R"){
-                document.getElementById('red-button').classList.add('background-red-high');
-                document.getElementById('red-button').classList.remove('background-red');
-                //esperar(2000);
-                //document.getElementById('red-button').classList.add('background-red');
-                //document.getElementById('red-button').classList.remove('background-red-high');
-                
-            }else{
-                console.log("No se");
+            console.log(i);
+            const letra = secuencia[i].toUpperCase();
+            if (map[letra]) {
+                const { id, normal, high } = map[letra];
+                setTimeout(() => {
+                    const btn = document.getElementById(id);
+                    if (btn) {
+                        btn.classList.remove(normal);
+                        btn.classList.add(high);
+                        // Después de 5 segundos, regresar a su clase normal
+                        setTimeout(() => {
+                            btn.classList.remove(high);
+                            btn.classList.add(normal);
+                        }, 1000);
+                    }
+                }, i * 1000); // Opcional: secuencial, cada uno después del anterior. Si los quieres al mismo tiempo, pon 0 en vez de i * 5000.
             }
 
             i++;
         }
+        document.getElementById("button-mostrar").hidden = true;
+        
     }
 </script>

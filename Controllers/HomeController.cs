@@ -132,25 +132,29 @@ public class HomeController : Controller
         }
     }
 
-    [HttpGet]
+    [HttpPost]
     public IActionResult ValidarSimon(string intento)
     {
+        
         Escape partida = Objeto.StringToObject<Escape>(HttpContext.Session.GetString("juego"));
+                
         if (partida.salaActual == 4)
         {
-        if (partida.simon.ValidarContraseña(intento))
-        {
-            if(partida.simon.contador == partida.simon.meta)
+            if (partida.simon.ValidarContraseña(intento))
             {
-                return RedirectToAction("PasarSala", new { contraseña = "c" });
-            }else
+                if (partida.simon.contador == partida.simon.meta)
+                {
+                    return RedirectToAction("PasarSala", new { contraseña = "c" });
+                }
+                else
+                {
+                    return RedirectToAction("JugarSimon");
+                }
+            }
+            else
             {
                 return RedirectToAction("JugarSimon");
             }
-        }else
-        {
-            return RedirectToAction("JugarSimon");
-        }
         }
         else
         {
