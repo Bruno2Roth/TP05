@@ -37,7 +37,7 @@ namespace TP05.Models
              {5, "No todos los caminos llevan a la salida... pero uno sí."}};
             this.secuencias = new string[] {"3", "1", "2", "12", "5"};
             this.SecuenciasAdivinadas = new bool[] {false, false, false, false, false};
-            this.salaActual = 4;
+            this.salaActual = 1;
             this.nombreJugador = nJ;
             this.wordle = new Wordle();
             this.simon = new Simon();

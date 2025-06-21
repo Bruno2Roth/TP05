@@ -158,26 +158,162 @@ input[type="submit"]:hover, input[type="button"]:hover, .bPista:hover {
   color: #1d3557;
 }
 
-/* FORMULARIO CONTRASEÑA UNIFICADO */
+/* --- FORMULARIOS COOL PARA IDENTIFICACIÓN Y CONTRASEÑA --- */
+
+/* Formulario de identificación (Sala0) */
+.sala0 form {
+  background: #f9f9fc;
+  border-radius: 1.3em;
+  box-shadow: 0 0.2em 1.1em 0 rgba(69,123,157,0.12);
+  padding: 2.2em 2em 1.7em 2em;
+  max-width: 340px;
+  margin: 3.5em auto 1.5em auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  align-items: stretch;
+  transition: box-shadow 0.2s;
+}
+
+.sala0 form:hover {
+  box-shadow: 0 0.3em 1.5em 0 rgba(69,123,157,0.19);
+}
+
+.sala0 form label {
+  color: #1d3557;
+  font-weight: 600;
+  font-size: 1.09em;
+  margin-bottom: 0.4em;
+  letter-spacing: 0.02em;
+}
+
+.sala0 form input[type="text"] {
+  border: none;
+  background: #f1faee;
+  border-radius: 0.9em;
+  padding: 0.85em 1.1em;
+  font-size: 1.07em;
+  box-shadow: 0 0.06em 0.18em 0 rgba(69,123,157,0.07);
+  transition: background 0.2s, box-shadow 0.2s;
+  color: #222;
+}
+
+.sala0 form input[type="text"]:focus {
+  background: #e0e7ff;
+  outline: none;
+  box-shadow: 0 0 0 2px #a8dadc;
+}
+
+.sala0 form input[type="submit"] {
+  background: linear-gradient(90deg, #457b9d 0%, #a8dadc 100%);
+  color: #fff;
+  font-weight: 700;
+  border: none;
+  border-radius: 1em;
+  padding: 0.95em 0;
+  font-size: 1.13em;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  margin-top: 0.3em;
+  box-shadow: 0 0.11em 0.6em 0 rgba(69,123,157,0.10);
+  transition: background 0.2s, transform 0.1s;
+}
+
+.sala0 form input[type="submit"]:hover {
+  background: linear-gradient(90deg, #1d3557 0%, #457b9d 100%);
+  transform: translateY(-2px) scale(1.03);
+}
+
+/* Formularios de contraseña (todas las salas que usan .form-contraseña) */
 .form-contraseña {
+  background: #f9f9fc;
+  border-radius: 1.3em;
+  box-shadow: 0 0.2em 1.1em 0 rgba(69,123,157,0.13);
+  padding: 1.3em 1.4em;
+  max-width: 340px;
+  margin: 2em auto 1.5em auto;
   display: flex;
   flex-wrap: wrap;
-  gap: 1em;
+  gap: 1.1em;
   align-items: center;
   justify-content: center;
-  margin: 2% 0;
+  transition: box-shadow 0.2s;
 }
-.form-contraseña input[type="text"], 
-.form-contraseña input[type="password"], 
-.form-contraseña input[type="number"] {
-  padding: 0.8em 1.2em;
-  border-radius: 1em;
-  border: 1.5px solid #bfc9d1;
-  font-size: 110%;
-  margin-right: 0.5em;
+
+.form-contraseña:hover {
+  box-shadow: 0 0.4em 1.7em 0 rgba(69,123,157,0.16);
 }
+
+.form-contraseña input[type="text"] {
+  border: none;
+  background: #f1faee;
+  border-radius: 0.95em;
+  padding: 0.85em 1.2em;
+  font-size: 1.08em;
+  color: #222;
+  box-shadow: 0 0.06em 0.18em 0 rgba(69,123,157,0.07);
+  transition: background 0.2s, box-shadow 0.2s;
+}
+
+.form-contraseña input[type="text"]:focus {
+  background: #e0e7ff;
+  outline: none;
+  box-shadow: 0 0 0 2px #457b9d;
+}
+
 .form-contraseña input[type="submit"] {
-  border-radius: 1.5em;
+  background: linear-gradient(90deg, #457b9d 0%, #a8dadc 100%);
+  color: #fff;
+  font-weight: 700;
+  border: none;
+  border-radius: 1em;
+  padding: 0.85em 1.5em;
+  font-size: 1.12em;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  box-shadow: 0 0.11em 0.6em 0 rgba(69,123,157,0.11);
+  transition: background 0.2s, transform 0.1s;
+}
+
+.form-contraseña input[type="submit"]:hover {
+  background: linear-gradient(90deg, #1d3557 0%, #457b9d 100%);
+  transform: translateY(-2px) scale(1.03);
+}
+
+/* Ajustes para inputs de números en formularios de juego */
+.sala2 form input[type="number"] {
+  border: none;
+  background: #f1faee;
+  border-radius: 0.9em;
+  padding: 0.8em 1.15em;
+  font-size: 1.06em;
+  color: #222;
+  margin-right: 0.5em;
+  box-shadow: 0 0.06em 0.18em 0 rgba(69,123,157,0.07);
+  transition: background 0.2s, box-shadow 0.2s;
+}
+
+.sala2 form input[type="number"]:focus {
+  background: #e0e7ff;
+  outline: none;
+  box-shadow: 0 0 0 2px #a8dadc;
+}
+
+.sala2 form input[type="submit"] {
+  background: linear-gradient(90deg, #457b9d 0%, #a8dadc 100%);
+  color: #fff;
+  font-weight: 700;
+  border: none;
+  border-radius: 1em;
+  padding: 0.85em 1.3em;
+  font-size: 1.09em;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.sala2 form input[type="submit"]:hover {
+  background: linear-gradient(90deg, #1d3557 0%, #457b9d 100%);
+  transform: translateY(-2px) scale(1.03);
 }
 
 .sala1 .consigna,
