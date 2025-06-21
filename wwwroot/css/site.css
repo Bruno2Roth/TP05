@@ -44,13 +44,10 @@ nav {
   margin-right: 4%;
 }
 
-
-
-/* NAV BOTONES ESTILO */
 .lista-nav {
   list-style: none;
   display: flex;
-  gap: 4%; /* más separados */
+  gap: 4%;
   margin-left: 1%;
 }
 
@@ -59,8 +56,8 @@ nav {
   text-decoration: none;
   font-size: 100%;
   transition: color 0.2s, background 0.2s;
-  padding: 0.8em 1.2em; /* más padding */
-  border-radius: 1em; /* más redondeado */
+  padding: 0.8em 1.2em;
+  border-radius: 1em; 
   background: transparent;
   margin: 0 0.5em;
   display: inline-block;
@@ -70,7 +67,6 @@ nav {
   color: #fff;
 }
 
-/* Main */
 main {
   max-width: 80%;
   margin-left: auto;
@@ -83,7 +79,6 @@ main {
   padding: 3% 2.5%;
 }
 
-/* Sección de introducción */
 .intro {
   text-align: center;
   padding-top: 3%;
@@ -113,7 +108,6 @@ main {
   background: #1d3557;
 }
 
-/* Salas */
 .sala1, .sala2, .sala4, .sala5 {
   background: #f1faee;
   padding: 3% 2%;
@@ -122,7 +116,6 @@ main {
   margin-bottom: 3.2%;
 }
 
-/* BOTÓN GENERAL (submit, buttons, bPista) */
 input[type="submit"], input[type="button"], .bPista {
   background: #457b9d;
   color: #fff;
@@ -140,7 +133,6 @@ input[type="submit"]:hover, input[type="button"]:hover, .bPista:hover {
   color: #fff;
 }
 
-/* BOTÓN DE OBTENER PISTA UNIFICADO */
 .bPista {
   display: inline-block;
   margin-top: 1.6%;
@@ -158,9 +150,6 @@ input[type="submit"]:hover, input[type="button"]:hover, .bPista:hover {
   color: #1d3557;
 }
 
-/* --- FORMULARIOS COOL PARA IDENTIFICACIÓN Y CONTRASEÑA --- */
-
-/* Formulario de identificación (Sala0) */
 .sala0 form {
   background: #f9f9fc;
   border-radius: 1.3em;
@@ -224,7 +213,6 @@ input[type="submit"]:hover, input[type="button"]:hover, .bPista:hover {
   transform: translateY(-2px) scale(1.03);
 }
 
-/* Formularios de contraseña (todas las salas que usan .form-contraseña) */
 .form-contraseña {
   background: #f9f9fc;
   border-radius: 1.3em;
@@ -280,7 +268,6 @@ input[type="submit"]:hover, input[type="button"]:hover, .bPista:hover {
   transform: translateY(-2px) scale(1.03);
 }
 
-/* Ajustes para inputs de números en formularios de juego */
 .sala2 form input[type="number"] {
   border: none;
   background: #f1faee;
@@ -341,7 +328,6 @@ input[type="submit"]:hover, input[type="button"]:hover, .bPista:hover {
   font-size: 105%;
 }
 
-/* INTENTOS EN LA SALA 2 Y 1 */
 .sala2 .intento-group, .sala1 .intento-group {
   display: flex;
   flex-wrap: wrap;
@@ -369,7 +355,6 @@ input[type="submit"]:hover, input[type="button"]:hover, .bPista:hover {
   }
 }
 
-/* CAMPOS INPUTS */
 .sala1 form,
 .sala2 form,
 .sala5 form {
@@ -393,7 +378,6 @@ input[type="submit"]:hover, input[type="button"]:hover, .bPista:hover {
   min-width: 7em;
 }
 
-/* Sala5 imágenes (QRs) */
 .sala5 ul {
   width: 80%;
   display: flex;
@@ -415,7 +399,6 @@ input[type="submit"]:hover, input[type="button"]:hover, .bPista:hover {
   box-shadow: 0 0.2em 1em 0 rgba(69,123,157,0.14);
 }
 
-/* Sala4 botones */
 .sala4 input[type="button"] {
   margin: 1% 1.5% 1% 0;
   padding: 1% 2%;
@@ -431,7 +414,6 @@ input[type="submit"]:hover, input[type="button"]:hover, .bPista:hover {
   background: #1d3557;
 }
 
-/* Créditos */
 .creditos {
   margin-top: 3%;
   display: flex;
@@ -454,7 +436,6 @@ input[type="submit"]:hover, input[type="button"]:hover, .bPista:hover {
   margin-bottom: 2%;
 }
 
-/* Videos en sala 3 */
 .sala3 video, .sala3 iframe {
   width: 60%;
   max-width: 500px;
@@ -467,7 +448,6 @@ input[type="submit"]:hover, input[type="button"]:hover, .bPista:hover {
   margin-right: auto;
 }
 
-/* Extras para títulos y mensajes */
 h1, h2, h3 {
   color: #1d3557;
   margin-bottom: 1.6%;
@@ -483,7 +463,7 @@ a:hover {
   color: #1d3557;
 }
 
-/* Footer */
+
 footer {
   text-align: center;
   padding-top: 1.6%;
@@ -493,7 +473,6 @@ footer {
   margin-top: 4%;
 }
 
-/* Responsive */
 @media (max-width: 700px) {
   nav {
     flex-direction: column;

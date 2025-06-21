@@ -164,15 +164,15 @@ public class HomeController : Controller
     public IActionResult IrPista()
     {
         Escape partida = Objeto.StringToObject<Escape>(HttpContext.Session.GetString("juego"));
-        if (partida.pistas[partida.salaActual] != null)
+        if (partida != null)
         {
-            ViewBag.pista = partida.pistas[partida.salaActual];
-            return View("Pista");
+            if (partida.pistas.ContainsKey(partida.salaActual))
+            {
+                ViewBag.pista = partida.pistas[partida.salaActual];
+                return View("Pista"); 
+            }
         }
-        else
-        {
-            return RedirectToAction("JugarSala");
-        }
+        return RedirectToAction("JugarSala");
     }
     [HttpGet]
     public IActionResult PasarSala(string contraseña)
