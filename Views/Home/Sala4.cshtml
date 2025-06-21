@@ -3,7 +3,6 @@
     
 }
 <section class="sala4">
-    
     <h1 class="consigna">Simon, seguí la secuencia de colores</h1>
     <input type="button" id="button-mostrar" value="Mostrar secuencia" ONCLIck="MostrarSecuencia()">
     <form method="post" action='@Url.Action("ValidarSimon", "Home")'>
@@ -16,12 +15,9 @@
         <input type="hidden" name="secuencia" id="secuencia" value="">
         <input type="submit" value="Enviar"/>
     </form>
-    
 </section>
 
 <script>
-
-
     function LlenoTextconColor(color) 
     {
         document.getElementById("secuencia").value = document.getElementById("secuencia").value + color;
@@ -47,7 +43,6 @@
             'R': { id: "red-button", normal: "background-red", high: "background-red-high" },
             'B': { id: "blue-button", normal: "background-blue", high: "background-blue-high" }
         };
-
         while (i < nivel){
             console.log(i);
             const letra = secuencia[i].toUpperCase();
@@ -58,18 +53,15 @@
                     if (btn) {
                         btn.classList.remove(normal);
                         btn.classList.add(high);
-                        // Después de 5 segundos, regresar a su clase normal
                         setTimeout(() => {
                             btn.classList.remove(high);
                             btn.classList.add(normal);
                         }, 1000);
                     }
-                }, i * 1000); // Opcional: secuencial, cada uno después del anterior. Si los quieres al mismo tiempo, pon 0 en vez de i * 5000.
+                }, i * 1000);
             }
-
             i++;
         }
         document.getElementById("button-mostrar").hidden = true;
-        
     }
 </script>
