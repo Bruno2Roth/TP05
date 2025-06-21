@@ -34,8 +34,6 @@ namespace TP05.Models
         }
         public bool ValidarContraseña(string intento)
         {
-            contador++;
-            return true;
             bool correcto = true;
             string bien = "";
             int i = 0;
