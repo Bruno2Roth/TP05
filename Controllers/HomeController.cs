@@ -46,7 +46,8 @@ public class HomeController : Controller
         {
             ViewBag.Nombre = partida.nombreJugador;
             ViewBag.sala = partida.salaActual;
-            if(partida.salaActual == 5)
+            ViewBag.adivinadas = partida.SecuenciasAdivinadas;
+            if (partida.salaActual == 5)
             {
                 ViewBag.qrs = partida.qrs;
             }
@@ -174,31 +175,13 @@ public class HomeController : Controller
         }
         return RedirectToAction("JugarSala");
     }
-    [HttpGet]
+    [HttpPost]
     public IActionResult ValidarSecuencia(string secuencia, int num)
     {
         Escape partida = Objeto.StringToObject<Escape>(HttpContext.Session.GetString("juego"));
-        if (partida.Validar(secuencia, partida.secuencias[num]))
-        {
-            switch (num)
-            {
-                case 0:
-                    ViewBag.secuencia0 = true;
-                    break;
-                case 1:
-                    ViewBag.secuencia1 = true;
-                    break;
-                case 2:
-                    ViewBag.secuencia2 = true;
-                    break;
-                case 3:
-                    ViewBag.secuencia3 = true;
-                    break;
-                case 4:
-                    ViewBag.secuencia4 = true;
-                    break;
-            }
-        }
+        partida.IntentarSecuencia(num, secuencia);
+        HttpContext.Session.SetString("juego", Objeto.ObjectToString(partida));
+        ViewBag.adivinadas = partida.SecuenciasAdivinadas;
         return View("Sala1");
     }
 }

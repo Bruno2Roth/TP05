@@ -4,54 +4,52 @@
     <section class="sala1">
         <h1 class="consigna">Completá las secuencias</h1>
         <ul>
-        @if(ViewBag.secuencia0 == null){
-            <li><form action='@Url.Action("ValidarSecuencia", "Home")' method="get">
+        <li>
+        @if(ViewBag.adivinadas[0]){
+            <h1>2 3 5 7 11 13</h1>
+        } else {
+            <form action='@Url.Action("ValidarSecuencia", "Home")' method="post">
                 2 <input type="text" name="secuencia"/>
                 <input type="hidden" name="num" value="0"/> 5 7 11 13 
                 <input type="submit" value="Adivinar">
-            </form></li>
+            </form>
+        }</li>
+        <li>@if(ViewBag.adivinadas[1]){
+            <h1>0 1 4 9 16 25</h1>
         } else {
-            <h1>2 3 5 7 11 13</h1>
-        }
-            @if(ViewBag.secuencia1 == null){
-            <li><form action='@Url.Action("ValidarSecuencia", "Home")' method="get">
+            <form action='@Url.Action("ValidarSecuencia", "Home")' method="post">
                 0 <input type="text" name="secuencia"/>
                 <input type="hidden" name="num" value="1"/> 4 9 16 25 
                 <input type="submit" value="Adivinar">
-            </form></li>}else
-            {
-                <h1>0 1 4 9 16 25</h1>
-            }
-            @if(ViewBag.secuencia2 == null){
-            <li><form action='@Url.Action("ValidarSecuencia", "Home")' method="get">
+            </form>
+        }</li>
+        <li>@if(ViewBag.adivinadas[2]){
+            <h1>1 2 6 24 120 720</h1>
+        } else {
+            <form action='@Url.Action("ValidarSecuencia", "Home")' method="post">
                 1 <input type="text" name="secuencia"/>
                 <input type="hidden" name="num" value="2"/> 6 24 120 720 
                 <input type="submit" value="Adivinar">
-            </form></li>}
-            else
-            {
-                <h1>1 2 6 24 120 720</h1>
-            }
-            @if(ViewBag.secuencia3 == null){
-            <li><form action='@Url.Action("ValidarSecuencia", "Home")' method="get">
+            </form>
+        }</li>
+        <li>@if(ViewBag.adivinadas[3]){
+            <h1>0 3 6 9 12 15 18</h1>
+        } else {
+            <form action='@Url.Action("ValidarSecuencia", "Home")' method="post">
                 0 3 6 9 <input type="text" name="secuencia"/>
                 <input type="hidden" name="num" value="3"/> 15 18 
                 <input type="submit" value="Adivinar">
-            </form></li>}
-            else
-            {
-                <h1>0 3 6 9 12 15 18</h1>
-            }
-            @if(ViewBag.secuencia4 == null){
-            <li><form action='@Url.Action("ValidarSecuencia", "Home")' method="get">
+            </form>
+        }</li>
+        <li>@if(ViewBag.adivinadas[4]){
+            <h1>0 1 1 2 3 5 8 13 21</h1>
+        } else {
+            <form action='@Url.Action("ValidarSecuencia", "Home")' method="post">
                 0 1 1 2 3 <input type="text" name="secuencia"/>
-                <input type="hidden" name="num" value="4"/> 8 13 21
+                <input type="hidden" name="num" value="4"/> 8 13 21 
                 <input type="submit" value="Adivinar">
-            </form></li>}
-            else
-            {
-                <h1>0 1 1 2 3 5 8 13 21</h1>
-            }
+            </form>
+        }</li>
         </ul> 
         <a href='@Url.Action("IrPista", "Home")' class="bPista">Obtener pista</a>
         <form action='@Url.Action("PasarSala", "Home")' method="get" class="form-contraseña">
