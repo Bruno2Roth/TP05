@@ -146,15 +146,8 @@ public class HomeController : Controller
                 {
                     return RedirectToAction("PasarSala", new { contraseña = "c" });
                 }
-                else
-                {
-                    return RedirectToAction("JugarSimon");
-                }
             }
-            else
-            {
-                return RedirectToAction("JugarSimon");
-            }
+            return RedirectToAction("JugarSimon");
         }
         else
         {
