@@ -122,19 +122,19 @@ public class HomeController : Controller
     public IActionResult JugarSimon()
     {
         Escape partida = Objeto.StringToObject<Escape>(HttpContext.Session.GetString("juego"));
-        if (partida.salaActual == 4)
+        if (partida != null)
         {
-            ViewBag.secuencia = partida.simon.respuestas;
-            ViewBag.numero = partida.simon.contador;
-            ViewBag.simon = partida.simon;
-            String mensaje = "";
-            ViewBag.mensaje = mensaje;
-            return View("Sala4");
+            if (partida.salaActual == 4)
+            {
+                ViewBag.secuencia = partida.simon.respuestas;
+                ViewBag.numero = partida.simon.contador;
+                ViewBag.simon = partida.simon;
+                String mensaje = "";
+                ViewBag.mensaje = mensaje;
+                return View("Sala4");
+            }
         }
-        else
-        {
-            return RedirectToAction("JugarSala");
-        }
+        return RedirectToAction("JugarSala");
     }
 
     [HttpPost]
@@ -145,7 +145,7 @@ public class HomeController : Controller
         {
             if (partida.simon.ValidarContraseña(secuencia))
             {
-                if (partida.simon.contador == partida.simon.meta)
+                if ((partida.simon.contador - 1) == partida.simon.meta)
                 {
                     HttpContext.Session.SetString("juego", Objeto.ObjectToString(partida));
                     return RedirectToAction("PasarSala", new { contraseña = "c" });

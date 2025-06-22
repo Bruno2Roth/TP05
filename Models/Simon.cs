@@ -7,7 +7,7 @@ namespace TP05.Models
     public class Simon
     {
         [JsonProperty]
-        public List<char> respuestas { get; private set; }
+        public List<char> respuestas { get; set; }
         [JsonProperty]
         public int contador { get; private set; }
         [JsonProperty]
@@ -15,12 +15,12 @@ namespace TP05.Models
         [JsonProperty]
         public char[] colores { get; private set; }
 
+        [JsonConstructor]
         public Simon()
         {
             this.colores = new char[] { 'R', 'G', 'B', 'Y' };
             this.contador = 1;
             this.meta = 10;
-            this.respuestas = new List<char> { 'R', 'G', 'R', 'Y' };//generarSecuencia();
         }
         public List<char> generarSecuencia()
         {
@@ -42,8 +42,6 @@ namespace TP05.Models
                 bien = bien + this.respuestas[i];
                 i++;
             }
-            Console.WriteLine("intento: " + intento);
-            Console.WriteLine("Secuencia correcta: " + bien);
             if (intento == bien)
             {
                 correcto = true;
