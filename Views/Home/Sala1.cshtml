@@ -10,10 +10,12 @@
                 <li>
                     @if(ViewBag.adivinadas[i])
                     {
+                        @int j = 0;
                         <h1>
                         @foreach(ViewBag.secuencias[i])
                         {
-                            
+                            @ViewBag.secuencias[i].secuencia[j];
+                            @j++;
                         }
                         </h1>
                     }
