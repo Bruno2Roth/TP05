@@ -11,79 +11,34 @@
                     @if(ViewBag.adivinadas[i])
                     {
                         <h1>
-                        @foreach(char c in ViewBag.sec.secuencia)
+                        @foreach(string s in sec.secuencia)
                         {
-                            @($"{c} ")
+                            @($"{s} ")
                         }
                         </h1>
                     }else
                     {
                         <form action='@Url.Action("ValidarSecuencia", "Home")' method="post">
                             <h1>
-                            @for(int j = 0; j < (ViewBag.sec.indiceRespuesta - 1); j++)
+                            @for(int j = 0; j < (sec.indiceRespuesta); j++)
                             {
                                 @($"{sec.secuencia[j]} ")
                             }
                             </h1>
                             <input type="text" name="secuencia"/>
-                            <input type="hidden" name="num" value="0"/>
-                            @for(int k = (ViewBag.indiceRespuesta + 1); k < sec.secuencia.Count; k++)
+                            <input type="hidden" name="num" value="@i"/>
+                            <h1>
+                            @for(int k = (sec.indiceRespuesta + 1); k < sec.secuencia.Count; k++)
                             {
                                 @($"{sec.secuencia[k]} ")
                             }
+                            </h1>
                             <input type="submit" value="Adivinar">
                         </form>
                     }
                 </li>
                 i++;
             }
-        <li>
-    using System.Security.Cryptography;
-#line default
-        <h1>2 3 5 7 11 13</h1>
-        } else {
-            <form action='@Url.Action("ValidarSecuencia", "Home")' method="post">
-                2 <input type="text" name="secuencia"/>
-                <input type="hidden" name="num" value="0"/> 5 7 11 13 
-                <input type="submit" value="Adivinar">
-            </form>
-        }</li>
-        <li>@if(ViewBag.adivinadas[1]){
-            <h1>0 1 4 9 16 25</h1>
-        } else {
-            <form action='@Url.Action("ValidarSecuencia", "Home")' method="post">
-                0 <input type="text" name="secuencia"/>
-                <input type="hidden" name="num" value="1"/> 4 9 16 25 
-                <input type="submit" value="Adivinar">
-            </form>
-        }</li>
-        <li>@if(ViewBag.adivinadas[2]){
-            <h1>1 2 6 24 120 720</h1>
-        } else {
-            <form action='@Url.Action("ValidarSecuencia", "Home")' method="post">
-                1 <input type="text" name="secuencia"/>
-                <input type="hidden" name="num" value="2"/> 6 24 120 720 
-                <input type="submit" value="Adivinar">
-            </form>
-        }</li>
-        <li>@if(ViewBag.adivinadas[3]){
-            <h1>0 3 6 9 12 15 18</h1>
-        } else {
-            <form action='@Url.Action("ValidarSecuencia", "Home")' method="post">
-                0 3 6 9 <input type="text" name="secuencia"/>
-                <input type="hidden" name="num" value="3"/> 15 18 
-                <input type="submit" value="Adivinar">
-            </form>
-        }</li>
-        <li>@if(ViewBag.adivinadas[4]){
-            <h1>0 1 1 2 3 5 8 13 21</h1>
-        } else {
-            <form action='@Url.Action("ValidarSecuencia", "Home")' method="post">
-                0 1 1 2 3 <input type="text" name="secuencia"/>
-                <input type="hidden" name="num" value="4"/> 8 13 21 
-                <input type="submit" value="Adivinar">
-            </form>
-        }</li>
         </ul> 
         <a href='@Url.Action("IrPista", "Home")' class="bPista">Obtener pista</a>
         <form action='@Url.Action("PasarSala", "Home")' method="get" class="form-contraseña">

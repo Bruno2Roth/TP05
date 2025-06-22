@@ -42,8 +42,8 @@ namespace TP05.Models
                 bien = bien + this.respuestas[i];
                 i++;
             }
-            Console.WriteLine(intento);
-            Console.WriteLine(bien);
+            Console.WriteLine("intento: " + intento);
+            Console.WriteLine("Secuencia correcta: " + bien);
             if (intento == bien)
             {
                 correcto = true;

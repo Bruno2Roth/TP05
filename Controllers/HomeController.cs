@@ -78,45 +78,45 @@ public class HomeController : Controller
     public IActionResult JugarWordle()
     {
         Escape partida = Objeto.StringToObject<Escape>(HttpContext.Session.GetString("juego"));
-        if (partida.salaActual == 2)
+        if (partida != null)
         {
-            ViewBag.intentos = partida.wordle.intentos;
-            return View("Sala2");
+            if (partida.salaActual == 2)
+            {
+                ViewBag.intentos = partida.wordle.intentos;
+                return View("Sala2");
+            }
         }
-        else
-        {
-            return RedirectToAction("JugarSala");
-        }
+        return RedirectToAction("JugarSala");
     }
 
     [HttpPost]
     public IActionResult ValidarWordle(string intento)
     {
         Escape partida = Objeto.StringToObject<Escape>(HttpContext.Session.GetString("juego"));
-        if (partida.salaActual == 2)
+        if (partida != null)
         {
-            partida.wordle.DevolverResultado(intento);
-            HttpContext.Session.SetString("juego", Objeto.ObjectToString(partida));
-            if(partida.wordle.intentos[partida.wordle.intentos.Count() - 1].correctas == 5)
+            if (partida.salaActual != 2)
             {
-                return RedirectToAction("PasarSala", new { contraseña = "a" });
-            }
-            if (partida.wordle.intentos.Count > 15)
-            {
-                partida.ReiniciarWordle();
+                partida.wordle.DevolverResultado(intento);
                 HttpContext.Session.SetString("juego", Objeto.ObjectToString(partida));
-                return RedirectToAction("JugarSala");
-            }
-            else
-            {
-                ViewBag.intentos = partida.wordle.intentos;
-                return View("Sala2");
+                if (partida.wordle.intentos[partida.wordle.intentos.Count() - 1].correctas == 5)
+                {
+                    return RedirectToAction("PasarSala", new { contraseña = "a" });
+                }
+                if (partida.wordle.intentos.Count > 15)
+                {
+                    partida.ReiniciarWordle();
+                    HttpContext.Session.SetString("juego", Objeto.ObjectToString(partida));
+                    return RedirectToAction("JugarSala");
+                }
+                else
+                {
+                    ViewBag.intentos = partida.wordle.intentos;
+                    return View("Sala2");
+                }
             }
         }
-        else
-        {
-            return RedirectToAction("JugarSala");
-        }
+        return RedirectToAction("JugarSala");
     }
 
     public IActionResult JugarSimon()
