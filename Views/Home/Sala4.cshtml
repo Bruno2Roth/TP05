@@ -2,7 +2,17 @@
     ViewData["Title"] = "Sala 4";
     
 }
+<p>@ViewBag.mensaje</p>
 <section class="sala4">
+    <h1>Secuencia: 
+    @foreach(char c in ViewBag.simon.respuestas)
+    {
+            @c
+    }
+    </h1>
+    <h1>Cantidad caracteres de la secuencia: @ViewBag.simon.respuestas.Count</h1>
+    <h1>Nivel: @ViewBag.simon.contador</h1>
+    <h1>Niveles restantes: @(ViewBag.simon.meta - ViewBag.simon.contador)</h1>
     <h1 class="consigna">Simon, seguí la secuencia de colores</h1>
     <input type="button" id="button-mostrar" value="Mostrar secuencia" ONCLIck="MostrarSecuencia()">
     <form method="post" action='@Url.Action("ValidarSimon", "Home")'>

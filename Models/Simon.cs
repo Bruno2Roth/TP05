@@ -20,13 +20,13 @@ namespace TP05.Models
             this.colores = new char[] { 'R', 'G', 'B', 'Y' };
             this.contador = 1;
             this.meta = 10;
-            this.respuestas = generarSecuencia();
+            this.respuestas = new List<char> { 'R', 'G', 'R', 'Y' };//generarSecuencia();
         }
         public List<char> generarSecuencia()
         {
             List<char> secuencia = new List<char>();
             Random r = new Random();
-            for (int i = 0; i < meta; i++)
+            for (int i = 0; i < this.meta; i++)
             {
                 secuencia.Add(colores[r.Next(colores.Length)]);
             }
@@ -42,11 +42,14 @@ namespace TP05.Models
                 bien = bien + this.respuestas[i];
                 i++;
             }
-            if(intento == bien)
+            Console.WriteLine(intento);
+            Console.WriteLine(bien);
+            if (intento == bien)
             {
                 correcto = true;
                 contador++;
-            }else
+            }
+            else
             {
                 correcto = false;
                 contador = 1;
