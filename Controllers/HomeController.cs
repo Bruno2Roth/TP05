@@ -173,9 +173,12 @@ public class HomeController : Controller
     public IActionResult PasarSala(string contraseña)
     {
         Escape partida = Objeto.StringToObject<Escape>(HttpContext.Session.GetString("juego"));
-        if (partida.Contraseña(contraseña.ToLower()))
+        if (partida != null)
         {
-            HttpContext.Session.SetString("juego", Objeto.ObjectToString(partida));
+            if (partida.Contraseña(contraseña.ToLower()))
+            {
+                HttpContext.Session.SetString("juego", Objeto.ObjectToString(partida));
+            }
         }
         return RedirectToAction("JugarSala");
     }
@@ -183,10 +186,16 @@ public class HomeController : Controller
     public IActionResult ValidarSecuencia(string secuencia, int num)
     {
         Escape partida = Objeto.StringToObject<Escape>(HttpContext.Session.GetString("juego"));
-        partida.IntentarSecuencia(num, secuencia);
-        HttpContext.Session.SetString("juego", Objeto.ObjectToString(partida));
-        ViewBag.adivinadas = partida.SecuenciasAdivinadas;
-        ViewBag.secuencias = partida.secuencias;
-        return View("Sala1");
+        if (partida != null)
+        {
+            if (partida.salaActual == 1)
+            {
+                partida.IntentarSecuencia(num, secuencia);
+                HttpContext.Session.SetString("juego", Objeto.ObjectToString(partida));
+                ViewBag.adivinadas = partida.SecuenciasAdivinadas;
+                ViewBag.secuencias = partida.secuencias;
+                return View("Sala1");
+            }
+        }return RedirectToAction("JugarSala");
     }
 }
