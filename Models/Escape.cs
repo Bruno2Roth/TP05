@@ -10,13 +10,13 @@ namespace TP05.Models
         [JsonProperty]
         public List<Persona> creadores { get; private set; }
         [JsonProperty]
+        public List<SecuenciaSala1> secuencias { get; private set; }
+        [JsonProperty]
         public List<string> qrs { get; private set; }
         [JsonProperty]
         public Dictionary<int, string> respuestas { get; private set; }
         [JsonProperty]
         public Dictionary<int, string> pistas { get; private set; }
-        [JsonProperty]
-        public string[] secuencias { get; private set; }
         [JsonProperty]
         public bool[] SecuenciasAdivinadas { get; private set; }
         [JsonProperty]
