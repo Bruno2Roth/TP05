@@ -4,27 +4,43 @@
     <section class="sala1">
         <h1 class="consigna">Completá las secuencias</h1>
         <ul>
-            @int i = 0;
+            @{int i = 0;}
             @foreach(SecuenciaSala1 sec in ViewBag.secuencias)
             {
                 <li>
                     @if(ViewBag.adivinadas[i])
                     {
-                        @int j = 0;
                         <h1>
-                        @foreach(ViewBag.secuencias[i])
+                        @foreach(char c in ViewBag.sec.secuencia)
                         {
-                            @ViewBag.secuencias[i].secuencia[j];
-                            @j++;
+                            @($"{c} ")
                         }
                         </h1>
+                    }else
+                    {
+                        <form action='@Url.Action("ValidarSecuencia", "Home")' method="post">
+                            <h1>
+                            @for(int j = 0; j < (ViewBag.sec.indiceRespuesta - 1); j++)
+                            {
+                                @($"{sec.secuencia[j]} ")
+                            }
+                            </h1>
+                            <input type="text" name="secuencia"/>
+                            <input type="hidden" name="num" value="0"/>
+                            @for(int k = (ViewBag.indiceRespuesta + 1); k < sec.secuencia.Count; k++)
+                            {
+                                @($"{sec.secuencia[k]} ")
+                            }
+                            <input type="submit" value="Adivinar">
+                        </form>
                     }
                 </li>
-                @i++;
+                i++;
             }
         <li>
-        @if(ViewBag.adivinadas[0]){
-            <h1>2 3 5 7 11 13</h1>
+    using System.Security.Cryptography;
+#line default
+        <h1>2 3 5 7 11 13</h1>
         } else {
             <form action='@Url.Action("ValidarSecuencia", "Home")' method="post">
                 2 <input type="text" name="secuencia"/>
