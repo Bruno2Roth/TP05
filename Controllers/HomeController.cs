@@ -35,8 +35,12 @@ public class HomeController : Controller
     {
         if (nj != null)
         {
-            Escape partida = new Escape(nj);
-            HttpContext.Session.SetString("juego", Objeto.ObjectToString(partida));
+            Escape p = Objeto.StringToObject<Escape>(HttpContext.Session.GetString("juego"));
+            if (p == null)
+            {
+                Escape partida = new Escape(nj);
+                HttpContext.Session.SetString("juego", Objeto.ObjectToString(partida));
+            }
         }
         return RedirectToAction("JugarSala");
     }

@@ -43,7 +43,7 @@ namespace TP05.Models
             new SecuenciaSala1(new List<string> { "0", "3", "6", "9", "12", "15" }, 4),
             new SecuenciaSala1(new List<string> { "0", "1", "1", "2", "3", "5", "8", "13", "21" }, 5)};
             this.SecuenciasAdivinadas = new bool[] { false, false, false, false, false };
-            this.salaActual = 4;
+            this.salaActual = 1;
             this.nombreJugador = nJ;
             this.wordle = new Wordle();
             this.simon = new Simon();
