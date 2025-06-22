@@ -144,9 +144,11 @@ public class HomeController : Controller
             {
                 if (partida.simon.contador == partida.simon.meta)
                 {
+                    HttpContext.Session.SetString("juego", Objeto.ObjectToString(partida));
                     return RedirectToAction("PasarSala", new { contraseña = "c" });
                 }
             }
+            HttpContext.Session.SetString("juego", Objeto.ObjectToString(partida));
             return RedirectToAction("JugarSimon");
         }
         else
