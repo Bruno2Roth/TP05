@@ -68,7 +68,6 @@ public class HomeController : Controller
             {
                 if (partida.salaActual == 4)
                 {
-                    //return RedirectToAction("PasarSala", new { contraseña = "c" });
                     return RedirectToAction("JugarSimon");
                 }
             }
@@ -129,8 +128,6 @@ public class HomeController : Controller
                 ViewBag.secuencia = partida.simon.respuestas;
                 ViewBag.numero = partida.simon.contador;
                 ViewBag.simon = partida.simon;
-                String mensaje = "";
-                ViewBag.mensaje = mensaje;
                 return View("Sala4");
             }
         }
