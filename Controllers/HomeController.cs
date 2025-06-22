@@ -51,7 +51,11 @@ public class HomeController : Controller
         {
             ViewBag.Nombre = partida.nombreJugador;
             ViewBag.sala = partida.salaActual;
-            ViewBag.adivinadas = partida.SecuenciasAdivinadas;
+            if (partida.salaActual == 1)
+            {
+                ViewBag.adivinadas = partida.SecuenciasAdivinadas;
+                ViewBag.secuencias = partida.secuencias;
+            }
             if (partida.salaActual == 5)
             {
                 ViewBag.qrs = partida.qrs;
@@ -186,6 +190,7 @@ public class HomeController : Controller
         partida.IntentarSecuencia(num, secuencia);
         HttpContext.Session.SetString("juego", Objeto.ObjectToString(partida));
         ViewBag.adivinadas = partida.SecuenciasAdivinadas;
+        ViewBag.secuencias = partida.secuencias;
         return View("Sala1");
     }
 }

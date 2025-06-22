@@ -8,10 +8,10 @@ namespace TP05.Models
     public class SecuenciaSala1
     {
         [JsonProperty]
-        public List<char> secuencia { get; private set; }
+        public List<string> secuencia { get; private set; }
         [JsonProperty]
         public int indiceRespuesta { get; private set; }
-        public SecuenciaSala1(List<char> s, int i)
+        public SecuenciaSala1(List<string> s, int i)
         {
             this.secuencia = s;
             this.indiceRespuesta = i;

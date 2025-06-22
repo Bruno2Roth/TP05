@@ -35,7 +35,7 @@ namespace TP05.Models
             this.respuestas = new Dictionary<int, string>{{1, "cable"}, {2, "a"}, {3, "1014"}, {4, "c"}, {5, "escapedone"}};
             this.pistas = new Dictionary<int, string>{{1, "Los números guardan secretos que hablan, cada cifra ingresada es un paso en el abecedario. Descifren su mensaje y encontrarán la palabra."}, {3, "Las cámaras no solo observan... esconden fragmentos del misterio. Fijen su mirada en las imágenes que cruzan rápido, pues allí está la suma que les falta."},
              {5, "No todos los caminos llevan a la salida... pero uno sí."}};
-            this.secuencias = new string[] {"3", "1", "2", "12", "5"};
+            this.secuencias = new List<SecuenciaSala1> {new SecuecniaSala1 {new List<char> {"2", "3", "5", "7", "11", "13"}, 1}, new SecuecniaSala1 {new List<char> {"0", "1", "4", "9", "16", "25"}, 1}, new SecuecniaSala1 {new List<char> {"1", "2", "6", "24", "120", "720"}, 1}, new SecuecniaSala1 {new List<char> {"0", "3", "6", "9", "12", "15"}, 4}, new SecuecniaSala1 {new List<char> {"0", "1", "1", "2", "3", "5", "8", "13", "21"}, 5}};
             this.SecuenciasAdivinadas = new bool[] {false, false, false, false, false};
             this.salaActual = 4;
             this.nombreJugador = nJ;
@@ -46,11 +46,11 @@ namespace TP05.Models
         {
             return intento == correcto;
         }
-        public void IntentarSecuencia(int indice, string intento)
+        public void IntentarSecuencia(int numSecuencia, string intento)
         {
-            if (intento == secuencias[indice])
+            if (intento == secuencias[numSecuencia].secuencia[secuencias[numSecuencia].indiceRespuesta])
             {
-                SecuenciasAdivinadas[indice] = true;
+                SecuenciasAdivinadas[numSecuencia] = true;
             }
         }
         public bool Contraseña(string intento)
