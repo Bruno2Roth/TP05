@@ -18,7 +18,7 @@ namespace TP05.Models
         [JsonProperty]
         public string[] secuencias { get; private set; }
         [JsonProperty]
-        public bool[] SecuenciasAdivinadas { get; set; }
+        public bool[] SecuenciasAdivinadas { get; private set; }
         [JsonProperty]
         public int salaActual { get; private set; }
         [JsonProperty]
