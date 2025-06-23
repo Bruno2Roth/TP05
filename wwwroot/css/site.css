@@ -142,6 +142,8 @@ input[type="submit"], input[type="button"], .bPista {
   text-decoration: none;
   font-weight: 500;
   transition: background 0.2s;
+  border: none;
+  outline: none;   
 }
 input[type="submit"]:hover, input[type="button"]:hover, .bPista:hover {
   background: #a8dadc;
@@ -165,7 +167,7 @@ input[type="submit"]:hover, input[type="button"]:hover, .bPista:hover {
 .form-contraseña:hover {
   box-shadow: 0 0.4em 1.7em 0 rgba(69,123,157,0.16);
 }
-.form-contraseña input[type="text"] {
+.form-contraseña input[type="text"], .form-contraseña input[type="number"] {
   border: none;
   background: #f1faee;
   border-radius: 0.95em;
@@ -175,7 +177,7 @@ input[type="submit"]:hover, input[type="button"]:hover, .bPista:hover {
   box-shadow: 0 0.06em 0.18em 0 rgba(69,123,157,0.07);
   transition: background 0.2s, box-shadow 0.2s;
 }
-.form-contraseña input[type="text"]:focus {
+.form-contraseña input[type="text"]:focus .form-contraseña input[type="number"]:focus{
   background: #e0e7ff;
   outline: none;
   box-shadow: 0 0 0 2px #457b9d;
@@ -279,19 +281,19 @@ input[type="button"].background-blue {
   background: blue;
   color: #fff;
 }
-input[type="button"].background-red-high {
+input[type="button"].background-red-high, input[type="button"].background-red:hover{
   background: rgba(255, 0, 0, 0.5);
   color: #fff;
 }
-input[type="button"].background-green-high {
+input[type="button"].background-green-high, input[type="button"].background-green:hover{
   background: rgba(0, 255, 0, 0.5);
   color: #fff;
 }
-input[type="button"].background-yellow-high {
+input[type="button"].background-yellow-high, input[type="button"].background-yellow:hover{
   background: rgba(255, 255, 0, 0.5);
   color: #fff;
 }
-input[type="button"].background-blue-high {
+input[type="button"].background-blue-high, input[type="button"].background-blue:hover{
   background: rgba(0, 0, 255, 0.5);
   color: #fff;
 }
