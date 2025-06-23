@@ -98,7 +98,7 @@ public class HomeController : Controller
         Escape partida = Objeto.StringToObject<Escape>(HttpContext.Session.GetString("juego"));
         if (partida != null)
         {
-            if (partida.salaActual != 2)
+            if (partida.salaActual == 2)
             {
                 partida.wordle.DevolverResultado(intento);
                 HttpContext.Session.SetString("juego", Objeto.ObjectToString(partida));
