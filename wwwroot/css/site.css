@@ -1,21 +1,34 @@
+/*GENERAL*/
 html {
   font-size: 100%;
   min-height: 100%;
 }
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
 body {
   font-family: 'Segoe UI', Arial, sans-serif;
   background: #f6f8fa;
   color: #222;
   min-height: 100vh;
 }
+h1, h2, h3 {
+  color: #1d3557;
+  margin-bottom: 1.6%;
+  font-weight: 700;
+}
 
+a {
+  color: #457b9d;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+a:hover {
+  color: #1d3557;
+}
+/*HEADER*/
 header {
   background: #1d3557;
   color: #fff;
@@ -23,8 +36,7 @@ header {
   padding-bottom: 2%;
   box-shadow: 0 0.2% 0.8% rgba(0,0,0,0.05);
 }
-
-nav {
+header nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -34,8 +46,7 @@ nav {
   padding-left: 2%;
   padding-right: 2%;
 }
-
-.logo-nav {
+header nav a{
   font-size: 150%;
   font-weight: bold;
   color: #f1faee;
@@ -43,15 +54,13 @@ nav {
   letter-spacing: 0.2em;
   margin-right: 4%;
 }
-
-.lista-nav {
+header nav ul{
   list-style: none;
   display: flex;
   gap: 4%;
   margin-left: 1%;
 }
-
-.enlace-nav {
+header nav ul li a {
   color: #f1faee;
   text-decoration: none;
   font-size: 100%;
@@ -62,11 +71,11 @@ nav {
   margin: 0 0.5em;
   display: inline-block;
 }
-.enlace-nav:hover {
+header nav ul li a:hover {
   background: #457b9d;
   color: #fff;
 }
-
+/*MAIN GENERAL*/
 main {
   max-width: 80%;
   margin-left: auto;
@@ -78,7 +87,7 @@ main {
   box-shadow: 0 0.2% 1.6% 0 rgba(0,0,0,0.06);
   padding: 3% 2.5%;
 }
-
+/*INDEX*/
 .intro {
   text-align: center;
   padding-top: 3%;
@@ -107,33 +116,22 @@ main {
 .intro a:hover {
   background: #1d3557;
 }
-
-.sala1, .sala2, .sala4, .sala5 {
+/*SECTIONS DE SALAS*/
+.sala0, .sala1, .sala2, .sala3, .sala4, .sala5 {
   background: #f1faee;
   padding: 3% 2%;
   border-radius: 0.8%;
   box-shadow: 0 0.1% 0.8% rgba(69,123,157,0.08);
   margin-bottom: 3.2%;
 }
-
+/*CONSIGNAS*/
+.consigna {
+  margin-bottom: 2.2%;
+  color: #1d3557;
+  font-size: 135%;
+}
+/*BOTONES DE ENVIO*/
 input[type="submit"], input[type="button"], .bPista {
-  background: #457b9d;
-  color: #fff;
-  border: none;
-  padding: 0.8em 2em;
-  border-radius: 1.5em;
-  cursor: pointer;
-  font-size: 100%;
-  transition: background 0.2s;
-  margin: 0.2em 0.2em 0.2em 0;
-  font-weight: 500;
-}
-input[type="submit"]:hover, input[type="button"]:hover, .bPista:hover {
-  background: #1d3557;
-  color: #fff;
-}
-
-.bPista {
   display: inline-block;
   margin-top: 1.6%;
   margin-bottom: 1.2%;
@@ -145,74 +143,11 @@ input[type="submit"]:hover, input[type="button"]:hover, .bPista:hover {
   font-weight: 500;
   transition: background 0.2s;
 }
-.bPista:hover {
+input[type="submit"]:hover, input[type="button"]:hover, .bPista:hover {
   background: #a8dadc;
   color: #1d3557;
 }
-
-.sala0 form {
-  background: #f9f9fc;
-  border-radius: 1.3em;
-  box-shadow: 0 0.2em 1.1em 0 rgba(69,123,157,0.12);
-  padding: 2.2em 2em 1.7em 2em;
-  max-width: 340px;
-  margin: 3.5em auto 1.5em auto;
-  display: flex;
-  flex-direction: column;
-  gap: 1em;
-  align-items: stretch;
-  transition: box-shadow 0.2s;
-}
-
-.sala0 form:hover {
-  box-shadow: 0 0.3em 1.5em 0 rgba(69,123,157,0.19);
-}
-
-.sala0 form label {
-  color: #1d3557;
-  font-weight: 600;
-  font-size: 1.09em;
-  margin-bottom: 0.4em;
-  letter-spacing: 0.02em;
-}
-
-.sala0 form input[type="text"] {
-  border: none;
-  background: #f1faee;
-  border-radius: 0.9em;
-  padding: 0.85em 1.1em;
-  font-size: 1.07em;
-  box-shadow: 0 0.06em 0.18em 0 rgba(69,123,157,0.07);
-  transition: background 0.2s, box-shadow 0.2s;
-  color: #222;
-}
-
-.sala0 form input[type="text"]:focus {
-  background: #e0e7ff;
-  outline: none;
-  box-shadow: 0 0 0 2px #a8dadc;
-}
-
-.sala0 form input[type="submit"] {
-  background: linear-gradient(90deg, #457b9d 0%, #a8dadc 100%);
-  color: #fff;
-  font-weight: 700;
-  border: none;
-  border-radius: 1em;
-  padding: 0.95em 0;
-  font-size: 1.13em;
-  letter-spacing: 0.04em;
-  cursor: pointer;
-  margin-top: 0.3em;
-  box-shadow: 0 0.11em 0.6em 0 rgba(69,123,157,0.10);
-  transition: background 0.2s, transform 0.1s;
-}
-
-.sala0 form input[type="submit"]:hover {
-  background: linear-gradient(90deg, #1d3557 0%, #457b9d 100%);
-  transform: translateY(-2px) scale(1.03);
-}
-
+/*FORMULARIOS*/
 .form-contraseña {
   background: #f9f9fc;
   border-radius: 1.3em;
@@ -227,11 +162,9 @@ input[type="submit"]:hover, input[type="button"]:hover, .bPista:hover {
   justify-content: center;
   transition: box-shadow 0.2s;
 }
-
 .form-contraseña:hover {
   box-shadow: 0 0.4em 1.7em 0 rgba(69,123,157,0.16);
 }
-
 .form-contraseña input[type="text"] {
   border: none;
   background: #f1faee;
@@ -242,13 +175,11 @@ input[type="submit"]:hover, input[type="button"]:hover, .bPista:hover {
   box-shadow: 0 0.06em 0.18em 0 rgba(69,123,157,0.07);
   transition: background 0.2s, box-shadow 0.2s;
 }
-
 .form-contraseña input[type="text"]:focus {
   background: #e0e7ff;
   outline: none;
   box-shadow: 0 0 0 2px #457b9d;
 }
-
 .form-contraseña input[type="submit"] {
   background: linear-gradient(90deg, #457b9d 0%, #a8dadc 100%);
   color: #fff;
@@ -262,63 +193,17 @@ input[type="submit"]:hover, input[type="button"]:hover, .bPista:hover {
   box-shadow: 0 0.11em 0.6em 0 rgba(69,123,157,0.11);
   transition: background 0.2s, transform 0.1s;
 }
-
 .form-contraseña input[type="submit"]:hover {
   background: linear-gradient(90deg, #1d3557 0%, #457b9d 100%);
   transform: translateY(-2px) scale(1.03);
 }
-
-.sala2 form input[type="number"] {
-  border: none;
-  background: #f1faee;
-  border-radius: 0.9em;
-  padding: 0.8em 1.15em;
-  font-size: 1.06em;
-  color: #222;
-  margin-right: 0.5em;
-  box-shadow: 0 0.06em 0.18em 0 rgba(69,123,157,0.07);
-  transition: background 0.2s, box-shadow 0.2s;
-}
-
-.sala2 form input[type="number"]:focus {
-  background: #e0e7ff;
-  outline: none;
-  box-shadow: 0 0 0 2px #a8dadc;
-}
-
-.sala2 form input[type="submit"] {
-  background: linear-gradient(90deg, #457b9d 0%, #a8dadc 100%);
-  color: #fff;
-  font-weight: 700;
-  border: none;
-  border-radius: 1em;
-  padding: 0.85em 1.3em;
-  font-size: 1.09em;
-  cursor: pointer;
-  transition: background 0.2s, transform 0.1s;
-}
-
-.sala2 form input[type="submit"]:hover {
-  background: linear-gradient(90deg, #1d3557 0%, #457b9d 100%);
-  transform: translateY(-2px) scale(1.03);
-}
-
-.sala1 .consigna,
-.sala2 .consigna,
-.sala4 .consigna {
-  margin-bottom: 2.2%;
-  color: #1d3557;
-  font-size: 135%;
-}
-
-.sala1 ul, .sala5 ul {
+/*LISTAS DE MAIN*/
+main ul{
   margin-bottom: 2.4%;
-  width: 80%;
   list-style: none;
-  padding-left: 0;
 }
-
-.sala1 li {
+/*ITEMS DE LISTAS SALA 1*/
+.sala1 ul li {
   background: #fff;
   padding: 1.2% 1%;
   margin-top: 1%;
@@ -327,15 +212,26 @@ input[type="submit"]:hover, input[type="button"]:hover, .bPista:hover {
   box-shadow: 0 0.1% 0.4% rgba(69,123,157,0.09);
   font-size: 105%;
 }
-
-.sala2 .intento-group, .sala1 .intento-group {
+/*FORMS SECUENCIAS SALA 1*/
+.sala1 form {
   display: flex;
   flex-wrap: wrap;
-  gap: 2%;
-  justify-content: flex-start;
+  gap: 1em;
+  align-items: center;
+  justify-content: center;
+  margin: 2% 0;
 }
-
-.sala2 .intento, .sala1 .intento {
+.sala1 input[type="text"]{
+  padding: 0.8em 1.2em;
+  border-radius: 1em;
+  border: 1.5px solid #bfc9d1;
+  font-size: 110%;
+  margin-right: 0.5em;
+  width: 14em;
+  min-width: 7em;
+}
+/*SALA 2 INTENTO SIMON*/
+.sala2 .intento{
   background: #fff;
   border-radius: 1.2em;
   box-shadow: 0 0.2em 1em 0 rgba(69,123,157,0.12);
@@ -348,36 +244,58 @@ input[type="submit"]:hover, input[type="button"]:hover, .bPista:hover {
   display: inline-block;
 }
 @media (max-width: 900px) {
-  .sala2 .intento, .sala1 .intento {
+  .sala2 .intento{
     flex-basis: 100%;
     min-width: 80%;
     max-width: 100%;
   }
 }
-
-.sala1 form,
-.sala2 form,
-.sala5 form {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1em;
-  align-items: center;
-  justify-content: center;
-  margin: 2% 0;
+/*SALA 3 VIDEOS*/
+.sala3 video{
+  width: 100%;
+  max-width: 500px;
+  height: 320px;
+  border-radius: 1.5em;
+  margin-bottom: 2em;
+  box-shadow: 0 0.2em 1em 0 rgba(69,123,157,0.12);
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
-
-.sala1 input[type="text"],
-.sala2 input[type="number"],
-.sala5 input[type="text"] {
-  padding: 0.8em 1.2em;
-  border-radius: 1em;
-  border: 1.5px solid #bfc9d1;
-  font-size: 110%;
-  margin-right: 0.5em;
-  width: 14em;
-  min-width: 7em;
+/*SIMON BOTONES*/
+input[type="button"].background-red {
+  background: rgb(255, 0, 0);
+  color: #fff;
 }
-
+input[type="button"].background-green {
+  background: rgb(0, 255, 0);
+  color: #fff;
+}
+input[type="button"].background-yellow {
+  background: rgb(255, 255, 0);
+  color: #fff;
+}
+input[type="button"].background-blue {
+  background: blue;
+  color: #fff;
+}
+input[type="button"].background-red-high {
+  background: rgba(255, 0, 0, 0.5);
+  color: #fff;
+}
+input[type="button"].background-green-high {
+  background: rgba(0, 255, 0, 0.5);
+  color: #fff;
+}
+input[type="button"].background-yellow-high {
+  background: rgba(255, 255, 0, 0.5);
+  color: #fff;
+}
+input[type="button"].background-blue-high {
+  background: rgba(0, 0, 255, 0.5);
+  color: #fff;
+}
+/*SALA 5*/
 .sala5 ul {
   width: 80%;
   display: flex;
@@ -398,22 +316,7 @@ input[type="submit"]:hover, input[type="button"]:hover, .bPista:hover {
   margin-bottom: 1.2em;
   box-shadow: 0 0.2em 1em 0 rgba(69,123,157,0.14);
 }
-
-.sala4 input[type="button"] {
-  margin: 1% 1.5% 1% 0;
-  padding: 1% 2%;
-  font-size: 100%;
-  background: #457b9d;
-  color: #fff;
-  border: none;
-  border-radius: 1.5em;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-.sala4 input[type="button"]:hover {
-  background: #1d3557;
-}
-
+/*CREDITOS*/
 .creditos {
   margin-top: 3%;
   display: flex;
@@ -435,35 +338,15 @@ input[type="submit"]:hover, input[type="button"]:hover, .bPista:hover {
   margin-top: 2%;
   margin-bottom: 2%;
 }
-
-.sala3 video, .sala3 iframe {
-  width: 60%;
-  max-width: 500px;
-  height: 320px;
-  border-radius: 1.5em;
-  margin-bottom: 2em;
-  box-shadow: 0 0.2em 1em 0 rgba(69,123,157,0.12);
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+.creditos {
+  flex-direction: column;
+  gap: 2%;
 }
-
-h1, h2, h3 {
-  color: #1d3557;
-  margin-bottom: 1.6%;
-  font-weight: 700;
+.creditos > div {
+  width: 95%;
+  margin-bottom: 2%;
 }
-
-a {
-  color: #457b9d;
-  text-decoration: none;
-  transition: color 0.2s;
-}
-a:hover {
-  color: #1d3557;
-}
-
-
+/*FOOTER*/
 footer {
   text-align: center;
   padding-top: 1.6%;
@@ -492,52 +375,8 @@ footer {
     padding-left: 0.5%;
     padding-right: 0.5%;
   }
-  .creditos {
-    flex-direction: column;
-    gap: 2%;
-  }
-  .creditos > div {
-    width: 95%;
-    margin-bottom: 2%;
-  }
   .sala3 video, .sala3 iframe {
     width: 98%;
     height: 180px;
   }
-}
-
-.background-blue
-{
-background-color: rgb(0, 0, 37)!important;
-}
-
-.background-yellow
-{
-background-color: rgb(68, 68, 0)!important;
-}
-.background-green
-{
-background-color: rgb(0, 61, 0)!important;
-}
-.background-red
-{
-background-color: rgb(83, 0, 0)!important;
-}
-
-.background-blue-high
-{
-background-color: blue!important;
-}
-
-.background-yellow-high
-{
-background-color: rgb(255, 255, 0)!important;
-}
-.background-green-high
-{
-background-color: rgb(0, 255, 0)!important;
-}
-.background-red-high
-{
-background-color: rgb(255, 0, 0)!important;
 }
