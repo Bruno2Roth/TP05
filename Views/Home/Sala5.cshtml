@@ -9,7 +9,7 @@
             <li><img src="@Url.Content(qr)" alt="ERROR"></li>
         }
     </ul>
-    <form action='@Url.Action("PasarSala", "Home")' method="get" class="form-contraseña">
+    <form action='@Url.Action("PasarSala", "Home")' method="get" class="form-contraseña" required>
         Contraseña: <input type="text" name="contraseña"/>
         <input type="submit" value="Enviar">
     </form>

@@ -18,7 +18,7 @@
                         </h1>
                     }else
                     {
-                        <form action='@Url.Action("ValidarSecuencia", "Home")' method="post">
+                        <form action='@Url.Action("ValidarSecuencia", "Home")' method="post" required>
                             <h1>
                             @for(int j = 0; j < (sec.indiceRespuesta); j++)
                             {
@@ -41,7 +41,7 @@
             }
         </ul> 
         <a href='@Url.Action("IrPista", "Home")' class="bPista">Obtener pista</a>
-        <form action='@Url.Action("PasarSala", "Home")' method="get" class="form-contraseña">
+        <form action='@Url.Action("PasarSala", "Home")' method="get" class="form-contraseña" required>
             Contraseña: <input type="text" name="contraseña"/>
             <input type="submit" value="Ingresar">
         </form>

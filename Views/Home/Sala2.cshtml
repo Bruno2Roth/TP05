@@ -13,7 +13,7 @@
             <p>No están: @(intento.incorrectas)</p>
         </div>
     }
-    <form method="post" action='@Url.Action("ValidarWordle", "Home")' class="form-contraseña">
+    <form method="post" action='@Url.Action("ValidarWordle", "Home")' class="form-contraseña" required>
         <input type="number" name="intento" min="10000" max="99999" />
         <input type="submit" value="Intentar"/>
     </form>
