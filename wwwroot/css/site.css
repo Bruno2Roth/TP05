@@ -281,20 +281,24 @@ input[type="button"].background-blue {
   background: blue;
   color: #fff;
 }
-input[type="button"].background-red-high/*, input[type="button"].background-red:hover*/{
+input[type="button"].background-red:hover{
   background: rgba(255, 0, 0, 0.5);
   color: #fff;
 }
-input[type="button"].background-green-high/*, input[type="button"].background-green:hover*/{
+input[type="button"].background-green:hover{
   background: rgba(0, 255, 0, 0.5);
   color: #fff;
 }
-input[type="button"].background-yellow-high/*, input[type="button"].background-yellow:hover*/{
+input[type="button"].background-yellow:hover{
   background: rgba(255, 255, 0, 0.5);
   color: #fff;
 }
-input[type="button"].background-blue-high/*, input[type="button"].background-blue:hover*/{
+input[type="button"].background-blue:hover{
   background: rgba(0, 0, 255, 0.5);
+  color: #fff;
+}
+input[type="button"].background-red-high, input[type="button"].background-green-high, input[type="button"].background-yellow-high, input[type="button"].background-blue-high{
+  background: rgba(0, 0, 0, 0.5);
   color: #fff;
 }
 /*SALA 5*/

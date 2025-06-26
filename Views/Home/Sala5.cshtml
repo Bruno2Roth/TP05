@@ -2,6 +2,8 @@
     ViewData["Title"] = "Sala 5";
 }
 <section class="sala5">
+    <h1 class="consigna">En seguridad hay muchos QR, pero sólo uno te dice la clave que abre la puerta</h1>
+
     <a href='@Url.Action("IrPista", "Home")' class="bPista">Obtener pista</a>
     <ul>
         @foreach(string qr in ViewBag.qrs)
